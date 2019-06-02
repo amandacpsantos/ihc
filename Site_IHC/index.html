@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>World Passaports</title>
+  <link rel="shortcut icon" type="image/x-icon" href="img/headerbackground/passicon.ico"/>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Mapa -->
+  <script src="static/js/anychart-base.min.js"></script>
+  <script src="static/js/anychart-ui.min.js"></script>
+  <script src="static/js/anychart-exports.min.js"></script>
+  <script src="static/js/anychart-map.min.js"></script>
+  <script src="static/js/anychart-data-adapter.min.js"></script>
+  <script src="static/js/proj4.js"></script>
+
+  <script src="static/geodata/custom/world/world.js"></script>
+
+  <link href="static/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+  <link href="static/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+
+  <script type="text/javascript" src="static/json/paises.json"></script>
+  <script type="text/javascript" src="static/json/data.json"></script>
+
+  <style type="text/css">
+    html, body, #container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+  </style>
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/agency.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" style="background: #212529;">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-size: 30px;">World Passports</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#paises">Países</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#dicas">Dicas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#portfolio">Passaportes</a>
+          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link js-scroll-trigger" href="#about">About</a>-->
+<!--          </li>-->
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#team">Equipe</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container">
+      <div class="intro-text">
+        <div style="background-color: rgba(255, 255, 255, 0.7); height: 220px; padding-top: 25px">
+        <div class="intro-lead-in">Escolha Seu Proximo Destino</div>
+<!--        <div class="intro-heading text-uppercase">Your Destination</div>-->
+        <p style="font-weight: 500; font-size: 19px; font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';">
+          World Passaports te da dicas sobre Passaportes aceitos em cada <br>País e seus vistos necessários
+          <br>
+          Além de outras informações sobre o País escolhido.
+        </p>
+
+      </div><br><br>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#paises" >Descubra Mais</a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Paises -->
+  <section id="paises" style="background: #ffffff;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Países</h2>
+          <h3 class="section-subheading text-muted">Selecione um País abaixo e você poderá descobrir quais passaportes são permitidos <br>
+          e quais precisam de vistos para o País selecionado.</h3>
+        </div>
+      </div>
+      <figure style="height: 600px; width: 1100px;">
+        <div id="container"></div>
+        <script>
+
+
+
+        var teste = [
+            {'name': 'Mônaco', 'id': 'MC', 'utc': '+1', 'visto_cod': '0', 'max': '27', 'min': '6', 'visto_turismo': 'Dispensa de visto'},
+
+            {'name': 'Singapura', 'id': 'SG', 'utc': '+8', 'visto_cod': '0', 'max': '31', 'min': '19', 'visto_turismo': 'Dispensa de visto'},
+
+            {'name': 'Hong Kong', 'id': 'HK', 'utc': '+8', 'max': '31', 'min': '14', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Cidade do Vaticano', 'id': 'VA', 'utc': '+1', 'max': '30', 'min': '3', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Bareine', 'id': 'BH', 'utc': '+3', 'max': '28', 'min': '21', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Malta', 'id': 'MT', 'utc': '+1', 'max': '28', 'min': '12', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Bermudas', 'id': 'BM', 'utc': '-3', 'max': '30', 'min': '17', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Bangladesh', 'id': 'BD', 'utc': '+6', 'max': '34', 'min': '14', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Maldives', 'id': 'MV', 'utc': '+5', 'max': '31', 'min': '26', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Barbados', 'id': 'BB', 'utc': '-4', 'max': '31', 'min': '24', 'visto_turismo': 'Dispensa de visto, por até 180 dias', 'visto_cod': '1'},
+
+            {'name': 'Maurício', 'id': 'MU', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'São Marinho', 'id': 'SM', 'utc': '+2', 'max': '31', 'min': '6', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Aruba', 'id': 'AW', 'utc': '-4', 'max': '32', 'min': '24', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Líbano', 'id': 'LB', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Rwanda', 'id': 'RW', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Comores', 'id': 'KM', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Netherlands', 'id': 'NL', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Haiti', 'id': 'HT', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Puerto Rico', 'id': 'PR', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Índia', 'id': 'IN', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Israel', 'id': 'IL', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Belgium', 'id': 'BE', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Burundi', 'id': 'BI', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Philippines', 'id': 'PH', 'area': '300000', 'density': '342.29', 'population': '102687121', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Japão', 'id': 'JP', 'area': '377944', 'density': '335.58', 'population': '126832000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Sri Lanka', 'id': 'LK', 'area': '65610', 'density': '309', 'population': '20277597', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'El Salvador', 'id': 'SV', 'area': '21040', 'density': '301', 'population': '6340000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Grenada', 'id': 'GD', 'area': '344', 'density': '300', 'population': '103328', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'American Samoa', 'id': 'AS', 'area': '197', 'density': '282', 'population': '55519', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Vietinã', 'id': 'VN', 'area': '331212', 'density': '268', 'population': '88780000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'United Kingdom', 'id': 'GB', 'area': '242910', 'density': '262', 'population': '64105700', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Trinidad and Tobago', 'id': 'TT', 'area': '5155', 'density': '258', 'population': '1328019', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Jamaica', 'id': 'JM', 'area': '10991', 'density': '247', 'population': '2711476', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Paquistão', 'id': 'PK', 'area': '803940', 'density': '238.93', 'population': '192084402', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Liechtenstein', 'id': 'LI', 'area': '160', 'density': '230', 'population': '36842', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Alemanha', 'id': 'DE', 'area': '357168', 'density': '228', 'population': '81285000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+
+            {'name': 'Dominican Republic', 'id': 'DO', 'area': '47875', 'density': '220', 'population': '10528000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Cayman Islands', 'id': 'KY', 'area': '259', 'density': '214', 'population': '55456', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Luxembourg', 'id': 'LU', 'area': '2586', 'density': '208', 'population': '537000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Italy', 'id': 'IT', 'area': '301308', 'density': '202', 'population': '60762320', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Kuaite', 'id': 'KW', 'area': '17818', 'density': '201', 'population': '3582054', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Switzerland', 'id': 'CH', 'area': '41285', 'density': '201', 'population': '8279700', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Seychelles', 'id': 'SC', 'area': '455', 'density': '200', 'population': '90945', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'British Virgin Islands', 'id': 'VG', 'area': '151', 'density': '196', 'population': '29537', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Antígua e Barbuda', 'id': 'AG', 'area': '442', 'density': '195', 'population': '86295', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 180 dias', 'visto_cod': '1'},
+
+            {'name': 'Nigéria', 'id': 'NG', 'area': '923768', 'density': '193', 'population': '178517000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Nepal', 'id': 'NP', 'area': '147181', 'density': '180', 'population': '26494504', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Catar', 'id': 'QA', 'area': '11571', 'density': '175', 'population': '2024707', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Gâmbia', 'id': 'GM', 'area': '10690', 'density': '173', 'population': '1849000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Andorra', 'id': 'AD', 'area': '464', 'density': '164', 'population': '76246', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+
+            {'name': 'Uganda', 'id': 'UG', 'area': '241551', 'density': '152', 'population': '36600000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Cyprus', 'id': 'CY', 'area': '5896', 'density': '146', 'population': '862000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Tonga', 'id': 'TO', 'area': '720', 'density': '145', 'population': '104270', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Guatemala', 'id': 'GT', 'area': '108889', 'density': '145', 'population': '15806675', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Anguilla', 'id': 'AI', 'area': '96', 'density': '140', 'population': '13452', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Czech Republic', 'id': 'CZ', 'area': '78867', 'density': '133', 'population': '10517400', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Denmark', 'id': 'DK', 'area': '43098', 'density': '131', 'population': '5639719', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Tailândia', 'id': 'TH', 'area': '513120', 'density': '131', 'population': '65926261', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Indonesia', 'id': 'ID', 'area': '1904569', 'density': '135', 'population': '257080000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Poland', 'id': 'PL', 'area': '312685', 'density': '123', 'population': '38496000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Cabo Verde', 'id': 'CV', 'area': '4033', 'density': '122', 'population': '491875', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Malaui', 'id': 'MW', 'area': '118484', 'density': '121', 'population': '14388600', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'França', 'id': 'FR', 'area': '543965', 'density': '118', 'population': '64149000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Síria', 'id': 'SY', 'area': '185180', 'density': '115', 'population': '21377000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Portugal', 'id': 'PT', 'area': '92090', 'density': '115', 'population': '10562178', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Eslováquia', 'id': 'SK', 'area': '49036', 'density': '110', 'population': '5410728', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Togo', 'id': 'TG', 'area': '56600', 'density': '109', 'population': '6191155', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Azerbaijão', 'id': 'AZ', 'area': '86600', 'density': '109', 'population': '9477100', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Hungria', 'id': 'HU', 'area': '93029', 'density': '106', 'population': '9877365', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Moldova', 'id': 'MD', 'area': '33843', 'density': '105', 'population': '3559500', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Gana', 'id': 'GH', 'area': '238533', 'density': '103', 'population': '24658823', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Cuba', 'id': 'CU', 'area': '109886', 'density': '102', 'population': '11163934', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Armênia', 'id': 'AM', 'area': '29743', 'density': '102', 'population': '3024100', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+
+            {'name': 'Slovenia', 'id': 'SI', 'area': '20273', 'density': '102', 'population': '2067741', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Áustria', 'id': 'AT', 'area': '83879', 'density': '102', 'population': '8572895', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+
+            {'name': 'Turquia', 'id': 'TR', 'area': '783562', 'density': '101', 'population': '77695904', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'United Arab Emirates', 'id': 'AE', 'area': '83600', 'density': '99', 'population': '8264070', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Albânia', 'id': 'AL', 'area': '28703', 'density': '98', 'population': '2821977', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+
+            {'name': 'Dominica', 'id': 'DM', 'area': '739', 'density': '96', 'population': '71293', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Espanha', 'id': 'ES', 'area': '505990', 'density': '92', 'population': '46439864', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Serbia', 'id': 'RS', 'area': '77474', 'density': '92', 'population': '7146759', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Benin', 'id': 'BJ', 'area': '112622', 'density': '92', 'population': '10323000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Costa Rica', 'id': 'CR', 'area': '51100', 'density': '91', 'population': '4667096', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Malaysia', 'id': 'MY', 'area': '330803', 'density': '94', 'population': '31009000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Egito', 'id': 'EG', 'area': '1002450', 'density': '90.04', 'population': '90262915', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Serra Leoa', 'id': 'SL', 'area': '71740', 'density': '85', 'population': '6092000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Romania', 'id': 'RO', 'area': '238391', 'density': '84', 'population': '20121641', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Camboja', 'id': 'KH', 'area': '181035', 'density': '84', 'population': '15184116', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Grécia', 'id': 'GR', 'area': '131957', 'density': '84', 'population': '11123034', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Etiópia', 'id': 'ET', 'area': '1063652', 'density': '83', 'population': '87952991', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Iraque', 'id': 'IQ', 'area': '434128', 'density': '83', 'population': '36004552', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Quênia', 'id': 'KE', 'area': '581834', 'density': '78', 'population': '45546000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Myanmar/Birmânia', 'id': 'MM', 'area': '676577', 'density': '76', 'population': '51419420', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Croatia', 'id': 'HR', 'area': '56542', 'density': '76', 'population': '4290612', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Honduras', 'id': 'HN', 'area': '112088', 'density': '75', 'population': '8385072', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Ukraine', 'id': 'UA', 'area': '603628', 'density': '75', 'population': '45377581', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Bosnia and Herzegovina', 'id': 'BA', 'area': '51209', 'density': '75', 'population': '3839737', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Morocco', 'id': 'MA', 'area': '446550', 'density': '75.81', 'population': '33852687', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Jordânia', 'id': 'JO', 'area': '89342', 'density': '76.43', 'population': '6828820', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Suazilândia', 'id': 'SZ', 'area': '17364', 'density': '72', 'population': '1250000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Senegal', 'id': 'SN', 'area': '196722', 'density': '69', 'population': '13567338', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Uzbequistão', 'id': 'UZ', 'area': '444103', 'density': '69', 'population': '30492800', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Lesoto', 'id': 'LS', 'area': '30355', 'density': '68', 'population': '2074000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Brunei', 'id': 'BN', 'area': '5765', 'density': '68', 'population': '393162', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Tunisia', 'id': 'TN', 'area': '163610', 'density': '66', 'population': '10777500', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Bulgaria', 'id': 'BG', 'area': '111002', 'density': '66', 'population': '7282041', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Ireland', 'id': 'IE', 'area': '70273', 'density': '65', 'population': '4585400', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Georgia', 'id': 'GE', 'area': '69700', 'density': '64', 'population': '4490500', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Burkina Faso', 'id': 'BF', 'area': '270764', 'density': '64', 'population': '17322796', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Cook Ilhas', 'id': 'CK', 'area': '237', 'density': '63', 'population': '14974', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Ecuador', 'id': 'EC', 'area': '255595', 'density': '63', 'population': '16168300', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Mexico', 'id': 'MX', 'area': '1967138', 'density': '61', 'population': '119713203', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Guiné-Equatorial', 'id': 'GQ', 'area': '28051', 'density': '58', 'population': '1622000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Tadjiquistão', 'id': 'TJ', 'area': '143100', 'density': '57', 'population': '8160000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Iêmen', 'id': 'YE', 'area': '455000', 'density': '54', 'population': '24527000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Eritréia', 'id': 'ER', 'area': '121100', 'density': '52', 'population': '6333000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Tanzânia', 'id': 'TZ', 'area': '883749', 'density': '51', 'population': '44928923', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Nicaragua', 'id': 'NI', 'area': '121428', 'density': '50', 'population': '6071045', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Irã', 'id': 'IR', 'area': '1648195', 'density': '47.9', 'population': '78952792', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Fiji', 'id': 'FJ', 'area': '18333', 'density': '47', 'population': '858038', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Panama', 'id': 'PA', 'area': '74177', 'density': '46', 'population': '3405813', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Belarus', 'id': 'BY', 'area': '207600', 'density': '46', 'population': '9469200', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+
+            {'name': 'Lithuania', 'id': 'LT', 'area': '65300', 'density': '45', 'population': '2944459', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Montenegro', 'id': 'ME', 'area': '13812', 'density': '45', 'population': '620029', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Camarões', 'id': 'CM', 'area': '466050', 'density': '44', 'population': '20386799', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Guiné', 'id': 'GN', 'area': '245857', 'density': '43', 'population': '10628972', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'África do Sul', 'id': 'ZA', 'area': '1220813', 'density': '43', 'population': '52981991', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+
+            {'name': 'Palau', 'id': 'PW', 'area': '488', 'density': '43', 'population': '20901', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Guiné-Bissau', 'id': 'GW', 'area': '36125', 'density': '42', 'population': '1520830', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Colombia', 'id': 'CO', 'area': '1141748', 'density': '42.47', 'population': '48491772', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Afeganistão', 'id': 'AF', 'area': '645807', 'density': '39', 'population': '25500100', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Djibuti', 'id': 'DJ', 'area': '23000', 'density': '38', 'population': '864618', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Libéria', 'id': 'LR', 'area': '97036', 'density': '36', 'population': '3476608', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Madagascar', 'id': 'MG', 'area': '587041', 'density': '35', 'population': '20696070', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Faroe Islands', 'id': 'FO', 'area': '1399', 'density': '34', 'population': '48244', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Zimbábue', 'id': 'ZW', 'area': '390757', 'density': '33', 'population': '12973808', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Estados Unidos', 'id': 'US', 'area': '9826675', 'density': '32.84', 'population': '322686937', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Venezuela', 'id': 'VE', 'area': '916445', 'density': '32', 'population': '28946101', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Latvia', 'id': 'LV', 'area': '64562', 'density': '31', 'population': '2005200', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Moçambique', 'id': 'MZ', 'area': '799380', 'density': '29.6', 'population': '23700715', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Quirguistão', 'id': 'KG', 'area': '199945', 'density': '29.5', 'population': '5895100', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Estonia', 'id': 'EE', 'area': '45339', 'density': '29', 'population': '1313271', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Laos', 'id': 'LA', 'area': '236800', 'density': '27.8', 'population': '6580800', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Bahamas', 'id': 'BS', 'area': '13940', 'density': '25.2', 'population': '351461', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+
+            {'name': 'Brasil', 'id': 'BR', 'area': '8515767', 'density': '23.8', 'population': '202768562', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Peru', 'id': 'PE', 'area': '1285216', 'density': '23.7', 'population': '30475144', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Chile', 'id': 'CL', 'area': '756096', 'density': '22', 'population': '16634603', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Sweden', 'id': 'SE', 'area': '449964', 'density': '21.7', 'population': '9747355', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Butão', 'id': 'BT', 'area': '38394', 'density': '20', 'population': '769500', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Uruguai', 'id': 'UY', 'area': '176215', 'density': '18.6', 'population': '3286314', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Finland', 'id': 'FI', 'area': '338424', 'density': '16.2', 'population': '5489057', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Sudão do Sul', 'id': 'SS', 'area': '644329', 'density': '17.5', 'population': '11296000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Zâmbia', 'id': 'ZM', 'area': '752612', 'density': '17.4', 'population': '13092666', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Sudão', 'id': 'SD', 'area': '1839542', 'density': '16.8', 'population': '30894000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'New Zealand', 'id': 'NZ', 'area': '270467', 'density': '17.21', 'population': '4654002', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Angola', 'id': 'AO', 'area': '1246700', 'density': '16.5', 'population': '20609294', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Paraguai', 'id': 'PY', 'area': '406752', 'density': '16.4', 'population': '6672631', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Argélia', 'id': 'DZ', 'area': '2381741', 'density': '16.2', 'population': '38700000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Norway', 'id': 'NO', 'area': '323782', 'density': '15.6', 'population': '5063709', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Papua Nova Guiné', 'id': 'PG', 'area': '462840', 'density': '16', 'population': '7398500', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Somália', 'id': 'SO', 'area': '637657', 'density': '14.6', 'population': '9331000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Niger', 'id': 'NE', 'area': '1186408', 'density': '14.4', 'population': '17129076', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Argentina', 'id': 'AR', 'area': '2780400', 'density': '14.4', 'population': '40117096', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+
+            {'name': 'Belize', 'id': 'BZ', 'area': '22965', 'density': '14.1', 'population': '324528', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Arábia Saudita', 'id': 'SA', 'area': '2149690', 'density': '14', 'population': '29994272', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Omã', 'id': 'OM', 'area': '309500', 'density': '13.5', 'population': '4183841', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Mali', 'id': 'ML', 'area': '1248574', 'density': '11.6', 'population': '14528662', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Turcomenistão', 'id': 'TM', 'area': '491210', 'density': '10.7', 'population': '5240000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Bolivia', 'id': 'BO', 'area': '1098581', 'density': '9.46', 'population': '10389913', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Chade', 'id': 'TD', 'area': '1284000', 'density': '8.78', 'population': '11274106', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Russia', 'id': 'RU', 'area': '17098242', 'density': '8.42', 'population': '143975923', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Rep. Centro Africana', 'id': 'CF', 'area': '622436', 'density': '7.42', 'population': '4616000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Gabão', 'id': 'GA', 'area': '267667', 'density': '6.25', 'population': '1672000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Kazakhstan', 'id': 'KZ', 'area': '2724900', 'density': '6.31', 'population': '17186000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Guyana', 'id': 'GY', 'area': '214999', 'density': '3.65', 'population': '784894', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Canadá', 'id': 'CA', 'area': '0', 'density': '3.63', 'population': '36256492', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Líbia', 'id': 'LY', 'area': '1770060', 'density': '3.5', 'population': '6244174', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Botswana', 'id': 'BW', 'area': '581730', 'density': '3.48', 'population': '2024904', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Mauritânia', 'id': 'MR', 'area': '1030700', 'density': '3.36', 'population': '3461041', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Suriname', 'id': 'SR', 'area': '163820', 'density': '3.26', 'population': '534189', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Iceland', 'id': 'IS', 'area': '102800', 'density': '3.21', 'population': '329740', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Austrália', 'id': 'AU', 'area': '7692024', 'density': '3.12', 'population': '23975613', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Namibia', 'id': 'NA', 'area': '825118', 'density': '2.56', 'population': '2113077', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Western Sahara', 'id': 'EH', 'area': '252120', 'density': '2.25', 'population': '567000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Mongolia', 'id': 'MN', 'area': '1564100', 'density': '1.92', 'population': '3000000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Pitcairn Islands', 'id': 'PN', 'area': '47', 'density': '1.19', 'population': '56', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Falkland Islands', 'id': 'FK', 'area': '12173', 'density': '0.21', 'population': '2563', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Greenland', 'id': 'GL', 'area': '2166000', 'density': '0.03', 'population': '55984', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Macau', 'id': 'MO', 'area': '30.3', 'density': '21224', 'population': '643100', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Gibraltar', 'id': 'GI', 'area': '7', 'density': '4250', 'population': '29752', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Sint Maarten', 'id': 'SX', 'area': '34', 'density': '1101', 'population': '37429', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Jersey', 'id': 'JE', 'area': '116', 'density': '844', 'population': '97857', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Guernsey', 'id': 'GG', 'area': '78', 'density': '800', 'population': '62431', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Palestine', 'id': 'PS', 'area': '6020', 'density': '756', 'population': '4550368', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Taiwan', 'id': 'TW', 'area': '36191', 'density': '647', 'population': '23410280', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Mayotte', 'id': 'YT', 'area': '374', 'density': '568', 'population': '212600', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'South Korea', 'id': 'KR', 'area': '100210', 'density': '503', 'population': '50423955', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Nauru', 'id': 'NR', 'area': '21', 'density': '480', 'population': '10084', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Tuvalu', 'id': 'TV', 'area': '26', 'density': '436', 'population': '11323', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Saint Barthélemy', 'id': 'BL', 'area': '21', 'density': '426', 'population': '8938', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Martinique', 'id': 'MQ', 'area': '1128', 'density': '349', 'population': '394173', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Curaçao', 'id': 'CW', 'area': '444', 'density': '339', 'population': '150563', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Réunion', 'id': 'RE', 'area': '2512', 'density': '327', 'population': '821136', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto 0 dias', 'visto_cod': '0'},
+
+            {'name': 'Marshall, Ilhas', 'id': 'MH', 'area': '181', 'density': '310', 'population': '56086', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'United States Virgin Islands', 'id': 'VI', 'area': '352', 'density': '302', 'population': '106405', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto 0 dias', 'visto_cod': '0'},
+
+            {'name': 'Guam', 'id': 'GU', 'area': '541', 'density': '295', 'population': '159358', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Saint Lucia', 'id': 'LC', 'area': '617', 'density': '270', 'population': '166526', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Saint Vincent and the Grenadines', 'id': 'VC', 'area': '389', 'density': '259', 'population': '100892', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Guadeloupe', 'id': 'GP', 'area': '1630', 'density': '247', 'population': '403355', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Coréia do Norte', 'id': 'KP', 'area': '122762', 'density': '205', 'population': '25155000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Saint Kitts and Nevis', 'id': 'KN', 'area': '270', 'density': '192', 'population': '51970', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'São Tomé e Príncipe', 'id': '\tST', 'area': '1001', 'density': '187', 'population': '187356', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Kosovo', 'id': 'XK', 'area': '10910', 'density': '166', 'population': '1815606', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Isle of Man', 'id': 'IM', 'area': '572', 'density': '148', 'population': '84497', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Kiribati', 'id': 'KI', 'area': '726', 'density': '147', 'population': '106461', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Federated States of Micronesia', 'id': 'FM', 'area': '701', 'density': '145', 'population': '101351', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'China', 'id': 'CN', 'area': '9640821', 'density': '142.56', 'population': '1374421995', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Tokelau', 'id': 'TK', 'area': '10', 'density': '141', 'population': '1411', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Marianas', 'id': 'MP', 'area': '457', 'density': '118', 'population': '53883', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Macedonia', 'id': 'MK', 'area': '25713', 'density': '80', 'population': '2062294', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'French Polynesia', 'id': 'PF', 'area': '3521', 'density': '76', 'population': '268270', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Costa do Marfim', 'id': 'CI', 'area': '322921', 'density': '72', 'population': '23202000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Timor-Leste', 'id': 'TL', 'area': '14919', 'density': '71', 'population': '1066409', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Samoa', 'id': 'WS', 'area': '2831', 'density': '66', 'population': '187820', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Caribbean Netherlands', 'id': 'BQ', 'area': '322', 'density': '66', 'population': '21133', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Norfolk Island', 'id': 'NF', 'area': '35', 'density': '66', 'population': '2302', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Turks and Caicos Islands', 'id': 'TC', 'area': '497', 'density': '63', 'population': '31458', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Montserrat', 'id': 'MS', 'area': '102', 'density': '48', 'population': '4922', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Wallis and Futuna', 'id': 'WF', 'area': '274', 'density': '48', 'population': '13135', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Cocos Islands', 'id': 'CC', 'area': '14', 'density': '39', 'population': '550', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Saint Helena, Ascension and Tristan da Cunha', 'id': 'SH', 'area': '122', 'density': '35', 'population': '4255', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Congo, República Democrática (ex-Zaire)', 'id': 'CD', 'area': '2345095', 'density': '29.6', 'population': '69360000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Saint Pierre and Miquelon', 'id': 'PM', 'area': '242', 'density': '25.1', 'population': '6081', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Vanuatu', 'id': 'VU', 'area': '12190', 'density': '21.7', 'population': '264652', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Ilhas Salomão', 'id': 'SB', 'area': '28370', 'density': '18.2', 'population': '515870', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Christmas Island', 'id': 'CX', 'area': '137', 'density': '15.1', 'population': '2072', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'New Caledonia', 'id': 'NC', 'area': '18575', 'density': '13.9', 'population': '258958', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Republic of the Congo', 'id': 'CG', 'area': '342000', 'density': '13', 'population': '4448000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Niue', 'id': 'NU', 'area': '261', 'density': '6.18', 'population': '1613', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+
+            {'name': 'Guiana Francesa', 'id': 'GF', 'area': '86504', 'density': '2.65', 'population': '229040', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+
+            {'name': 'Svalbard and Jan Mayen', 'id': 'SJ', 'area': '61399', 'density': '0.04', 'population': '2655', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'}
+
+        ];
+
+
+        anychart.onDocumentReady(function () {
+            var map = anychart.map();
+
+
+            map.credits()
+                      .enabled(true)
+                      .url('https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_by_population_density')
+                      .logoSrc('https://en.wikipedia.org/static/favicon/wikipedia.ico')
+                      .text('Data source: https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_by_population_density');
+
+              map.title()
+                      .enabled(true)
+                      .useHtml(true)
+                      .padding([10, 0, 10, 0])
+                      .text('VISTO DE TURISMO PARA BRASILEIROS <br/>' +
+                              '<span  style="color:#929292; font-size: 12px;">(Data source: Itamaraty, 2019)</span>');
+
+              map.geoData('anychart.maps.world');
+              map.interactivity().selectionMode('none');
+              map.padding(0);
+
+              var dataSet = anychart.data.set(teste);
+              var filter_data = dataSet.mapAs({'value': 'visto_cod'});
+
+
+              var series = map.choropleth(filter_data);
+
+              series.labels(false);
+
+              series.hovered()
+                      .fill('#B73FFF')
+                      .stroke(anychart.color.darken('#7133FF'));
+
+              series.selected()
+                      .fill('#ffc107')
+                      .stroke(anychart.color.darken('#1687CC'));
+
+              series.tooltip()
+                      .useHtml(true)
+                      .format(function () {
+                          return '<span style="color: #d9d9d9">Visto</span>: ' +
+                                  (this.getData('visto_turismo')).toLocaleString() + '<br/>'
+
+
+                      });
+
+              var scale = anychart.scales.ordinalColor([
+                  {less: 1.1},
+                  {greater: 1.9}
+
+              ]);
+
+              scale.colors(['#FFD336', '#75A6FF']);
+
+              var colorRange = map.colorRange();
+              colorRange.enabled(true)
+                      .padding([0, 0, 20, 0]);
+
+              colorRange.ticks()
+                      .enabled(true)
+                      .stroke('3 #ffffff')
+                      .position('center')
+                      .length(7);
+
+              colorRange.colorLineSize(5);
+              colorRange.marker().size(7);
+
+
+              colorRange.labels()
+                      .fontSize(11)
+                      .padding(3, 0, 0, 0)
+                      .format(function () {
+                          var range = this.colorRange;
+                          var name;
+
+
+                          if (isFinite(range.start + range.end)) {
+                              name = "teste";
+                          } else if (isFinite(range.start)) {
+                              name = 'Visto exigido';
+                          } else {
+                              name = 'Dispensa de visto';
+                          }
+                          return name
+                      });
+
+              series.colorScale(scale);
+
+              // create zoom controls
+              var zoomController = anychart.ui.zoom();
+              zoomController.render(map);
+
+              // set container id for the chart
+              map.container('container');
+
+              // initiate chart drawing
+              map.draw();
+
+      });
+      </script>
+      </figure>
+    </div>
+  </section>
+
+<!-- Dicas -->
+  <section id="dicas" class="bg-light" style="background: #ffffff;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Dicas</h2>
+          <h3 class="section-subheading text-muted">Algumas dicas que você possa precisar em sua viagem</h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-globe-americas fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Paises</h4>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-passport fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Passaportes</h4>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-stamp fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Vistos</h4>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Passaportes -->
+  <section class="bg-light" id="portfolio">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Passaportes</h2>
+          <h3 class="section-subheading text-muted">Informações de Vistos para cada passaporte.</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Threads</h4>
+            <p class="text-muted">Illustration</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Explore</h4>
+            <p class="text-muted">Graphic Design</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Finish</h4>
+            <p class="text-muted">Identity</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Lines</h4>
+            <p class="text-muted">Branding</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Southwest</h4>
+            <p class="text-muted">Website Design</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Window</h4>
+            <p class="text-muted">Photography</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+<!--  <section id="about">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-lg-12 text-center">-->
+<!--          <h2 class="section-heading text-uppercase">About</h2>-->
+<!--          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <div class="col-lg-12">-->
+<!--          <ul class="timeline">-->
+<!--            <li>-->
+<!--              <div class="timeline-image">-->
+<!--                <img class="rounded-circle img-fluid" src="img/about/1.jpg" alt="">-->
+<!--              </div>-->
+<!--              <div class="timeline-panel">-->
+<!--                <div class="timeline-heading">-->
+<!--                  <h4>2009-2011</h4>-->
+<!--                  <h4 class="subheading">Our Humble Beginnings</h4>-->
+<!--                </div>-->
+<!--                <div class="timeline-body">-->
+<!--                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </li>-->
+<!--            <li class="timeline-inverted">-->
+<!--              <div class="timeline-image">-->
+<!--                <img class="rounded-circle img-fluid" src="img/about/2.jpg" alt="">-->
+<!--              </div>-->
+<!--              <div class="timeline-panel">-->
+<!--                <div class="timeline-heading">-->
+<!--                  <h4>March 2011</h4>-->
+<!--                  <h4 class="subheading">An Agency is Born</h4>-->
+<!--                </div>-->
+<!--                <div class="timeline-body">-->
+<!--                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <div class="timeline-image">-->
+<!--                <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">-->
+<!--              </div>-->
+<!--              <div class="timeline-panel">-->
+<!--                <div class="timeline-heading">-->
+<!--                  <h4>December 2012</h4>-->
+<!--                  <h4 class="subheading">Transition to Full Service</h4>-->
+<!--                </div>-->
+<!--                <div class="timeline-body">-->
+<!--                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </li>-->
+<!--            <li class="timeline-inverted">-->
+<!--              <div class="timeline-image">-->
+<!--                <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">-->
+<!--              </div>-->
+<!--              <div class="timeline-panel">-->
+<!--                <div class="timeline-heading">-->
+<!--                  <h4>July 2014</h4>-->
+<!--                  <h4 class="subheading">Phase Two Expansion</h4>-->
+<!--                </div>-->
+<!--                <div class="timeline-body">-->
+<!--                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </li>-->
+<!--            <li class="timeline-inverted">-->
+<!--              <div class="timeline-image">-->
+<!--                <h4>Be Part-->
+<!--                  <br>Of Our-->
+<!--                  <br>Story!</h4>-->
+<!--              </div>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+  <!-- Team -->
+  <section class="bg-light" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Nossa Equipe</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/5b.jpg" alt="">
+            <h4>Amanda Santos</h4>
+            <p class="text-muted">Lead Designer</p>
+<!--            <ul class="list-inline social-buttons">-->
+<!--              <li class="list-inline-item">-->
+<!--                <a href="#">-->
+<!--                  <i class="fab fa-twitter"></i>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="list-inline-item">-->
+<!--                <a href="#">-->
+<!--                  <i class="fab fa-facebook-f"></i>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="list-inline-item">-->
+<!--                <a href="#">-->
+<!--                  <i class="fab fa-linkedin-in"></i>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--            </ul>-->
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/4.jpg" alt="">
+            <h4>Humberto Vieira</h4>
+            <p class="text-muted">Lead Developer</p>
+<!--            <ul class="list-inline social-buttons">-->
+<!--              <li class="list-inline-item">-->
+<!--                <a href="#">-->
+<!--                  <i class="fab fa-twitter"></i>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="list-inline-item">-->
+<!--                <a href="#">-->
+<!--                  <i class="fab fa-facebook-f"></i>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="list-inline-item">-->
+<!--                <a href="#">-->
+<!--                  <i class="fab fa-linkedin-in"></i>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--            </ul>-->
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients -->
+<!--  <section class="py-5" style="background: #ffffff;">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-3 col-sm-6">-->
+<!--          <a href="#">-->
+<!--            <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--        <div class="col-md-3 col-sm-6">-->
+<!--          <a href="#">-->
+<!--            <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--        <div class="col-md-3 col-sm-6">-->
+<!--          <a href="#">-->
+<!--            <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--        <div class="col-md-3 col-sm-6">-->
+<!--          <a href="#">-->
+<!--            <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+  <!-- Footer -->
+<!--  <footer>-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-4">-->
+<!--          <span class="copyright">Copyright &copy; Your Website 2019</span>-->
+<!--        </div>-->
+<!--        <div class="col-md-4">-->
+<!--          <ul class="list-inline quicklinks">-->
+<!--            <li class="list-inline-item">-->
+<!--              <a href="#">Privacy Policy</a>-->
+<!--            </li>-->
+<!--            <li class="list-inline-item">-->
+<!--              <a href="#">Terms of Use</a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </footer>-->
+
+  <!-- Portfolio Modals -->
+
+  <!-- Modal 1 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Threads</li>
+                  <li>Category: Illustration</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Explore</li>
+                  <li>Category: Graphic Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Finish</li>
+                  <li>Category: Identity</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Lines</li>
+                  <li>Category: Branding</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Southwest</li>
+                  <li>Category: Website Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Window</li>
+                  <li>Category: Photography</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/agency.min.js"></script>
+
+</body>
+
+</html>
