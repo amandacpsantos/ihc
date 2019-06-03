@@ -12,4 +12,4 @@ Ela se encaixa no propósito do site, porque a oportunidade de estudar em outro 
 
 Equipe: Humberto Vieira e Amanda Santos
 
-Link do Vídeo: 
+Link do Vídeo: https://youtu.be/WWcHr-p7650
