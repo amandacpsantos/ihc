@@ -11,7 +11,3 @@ Ela se encaixa no propósito do site, porque a oportunidade de estudar em outro 
 - Novos desafios.
 
 Equipe: Humberto Vieira e Amanda Santos\
-\
-\
-PS: Por problemas ao adicionar colaborador no Git\
-Segue o git da Amanda: https://github.com/amandacpsantos/mapa
