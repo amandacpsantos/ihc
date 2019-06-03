@@ -10,4 +10,4 @@ Ela se encaixa no propósito do site, porque a oportunidade de estudar em outro 
 - Costumes,
 - Novos desafios.
 
-Equipe: Humberto Vieira e Amanda Santos\
+Equipe: Humberto Vieira e Amanda Santos
