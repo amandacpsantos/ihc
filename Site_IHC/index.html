@@ -90,15 +90,17 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <div style="background-color: rgba(255, 255, 255, 0.7); height: 150px; padding-top: 22px">
-        <div class="intro-lead-in">Escolha Seu Proximo Destino</div>
-<!--        <div class="intro-heading text-uppercase">Your Destination</div>-->
-        <p style="font-weight: 500; font-size: 19px; font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+<!--        <div style="background-color: rgba(255, 255, 255, 0.7); height: 150px; padding-top: 22px">-->
+        <div  style="font-weight: 500; font-size: 40px; font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
         'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';">
+          Escolha Seu Proximo Destino</div>
+<!--        <div class="intro-heading text-uppercase">Your Destination</div>-->
+        <p class="text-muted text-center" style="color: black; margin-bottom: 100px;">
           E viaje com tranquilidade com as dicas de World Passaports<br>
         </p>
 
-      </div><br><br>
+<!--      </div>-->
+      <br><br>
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#dicas" >Veja Mais</a>
       </div>
 
@@ -170,490 +172,422 @@
         <div id="container"></div>
         <script>
 
-        var teste = [
-            {'name': 'Mônaco', 'id': 'MC', 'utc': '+1', 'visto_cod': '0', 'max': '27', 'min': '6', 'visto_turismo': 'Dispensa de visto'},
 
-            {'name': 'Singapura', 'id': 'SG', 'utc': '+8', 'visto_cod': '0', 'max': '31', 'min': '19', 'visto_turismo': 'Dispensa de visto'},
 
-            {'name': 'Hong Kong', 'id': 'HK', 'utc': '+8', 'max': '31', 'min': '14', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+        var paises = [
+            {'id': 'AF', 'name': 'Afeganistão', 'capital': 'Cabul', 'utc': '4h30', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Islamabade'},
 
-            {'name': 'Cidade do Vaticano', 'id': 'VA', 'utc': '+1', 'max': '30', 'min': '3', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'ZA', 'name': 'África do Sul', 'capital': 'Pretória', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Cidade do Cabo\nPretória'},
 
-            {'name': 'Bareine', 'id': 'BH', 'utc': '+3', 'max': '28', 'min': '21', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'AL', 'name': 'Albânia', 'capital': 'Tirana', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Tirana'},
 
-            {'name': 'Malta', 'id': 'MT', 'utc': '+1', 'max': '28', 'min': '12', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'DE', 'name': 'Alemanha', 'capital': 'Berlim', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Berlim \nFrankfurt \nMunique'},
 
-            {'name': 'Bermudas', 'id': 'BM', 'utc': '-3', 'max': '30', 'min': '17', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'AD', 'name': 'Andorra', 'capital': 'Andorra-a-Velha', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Barcelona'},
 
-            {'name': 'Bangladesh', 'id': 'BD', 'utc': '+6', 'max': '34', 'min': '14', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'AO', 'name': 'Angola', 'capital': 'Luanda', 'utc': '1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Luanda'},
 
-            {'name': 'Maldives', 'id': 'MV', 'utc': '+5', 'max': '31', 'min': '26', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'AG', 'name': 'Antígua e Barbuda', 'capital': 'São João', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 180 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 180 dias', 'embaixada': 'Saint Jonhs'},
 
-            {'name': 'Barbados', 'id': 'BB', 'utc': '-4', 'max': '31', 'min': '24', 'visto_turismo': 'Dispensa de visto, por até 180 dias', 'visto_cod': '1'},
+            {'id': 'SA', 'name': 'Arábia Saudita', 'capital': 'Riade', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Riade'},
 
-            {'name': 'Maurício', 'id': 'MU', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'DZ', 'name': 'Argélia', 'capital': 'Argel', 'utc': '1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Argel'},
 
-            {'name': 'São Marinho', 'id': 'SM', 'utc': '+2', 'max': '31', 'min': '6', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'AR', 'name': 'Argentina', 'capital': 'Buenos Aires', 'utc': '-3h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Buenos Aires\nCórdoba\nMendoza\nPaso de los Libres\nPuerto Iguazú'},
 
-            {'name': 'Aruba', 'id': 'AW', 'utc': '-4', 'max': '32', 'min': '24', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'AM', 'name': 'Armênia', 'capital': 'Erevã', 'utc': '4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Ierevan'},
 
-            {'name': 'Líbano', 'id': 'LB', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'AU', 'name': 'Austrália', 'capital': 'Camberra', 'utc': '10h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Camberra\nSydney'},
 
-            {'name': 'Rwanda', 'id': 'RW', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'AT', 'name': 'Áustria', 'capital': 'Viena', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Viena'},
 
-            {'name': 'Comores', 'id': 'KM', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'AZ', 'name': 'Azerbaijão', 'capital': 'Bacu', 'utc': '4h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Baku'},
 
-            {'name': 'Netherlands', 'id': 'NL', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BS', 'name': 'Bahamas', 'capital': 'Nassau', 'utc': '-5h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Nassau'},
 
-            {'name': 'Haiti', 'id': 'HT', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BD', 'name': 'Bangladesh', 'capital': 'Daca', 'utc': '6h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Daca'},
 
-            {'name': 'Puerto Rico', 'id': 'PR', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BB', 'name': 'Barbados', 'capital': 'Bridgetown', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 180 dias', 'vn_cod': '', 'visto_negocio': 'Visto exigido', 'embaixada': 'Bridgetown'},
 
-            {'name': 'Índia', 'id': 'IN', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'BH', 'name': 'Bareine', 'capital': 'Manama', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Kuaite'},
 
-            {'name': 'Israel', 'id': 'IL', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BY', 'name': 'Belarus/ Bielorrússia', 'capital': 'Minsque', 'utc': '3h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Minsk'},
 
-            {'name': 'Belgium', 'id': 'BE', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BE', 'name': 'Bélgica', 'capital': 'Bruxelas', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Bruxelas'},
 
-            {'name': 'Burundi', 'id': 'BI', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'BZ', 'name': 'Belize', 'capital': 'Belmopã', 'utc': '-6h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Belmopan'},
 
-            {'name': 'Philippines', 'id': 'PH', 'area': '300000', 'density': '342.29', 'population': '102687121', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BJ', 'name': 'Benin', 'capital': 'Porto Novo', 'utc': '1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Cotonou'},
 
-            {'name': 'Japão', 'id': 'JP', 'area': '377944', 'density': '335.58', 'population': '126832000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'BO', 'name': 'Bolívia', 'capital': 'Sucre', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 30 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Cobija \nCochabamba \nGuayaramerin \nLa Paz\nPuerto Suárez \nSanta Cruz de la Sierra'},
 
-            {'name': 'Sri Lanka', 'id': 'LK', 'area': '65610', 'density': '309', 'population': '20277597', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'BA', 'name': 'Bósnia e Herzegovina', 'capital': 'Saraievo', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Sarajevo'},
 
-            {'name': 'El Salvador', 'id': 'SV', 'area': '21040', 'density': '301', 'population': '6340000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BW', 'name': 'Botsuana', 'capital': 'Gaborone', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Gaborone'},
 
-            {'name': 'Grenada', 'id': 'GD', 'area': '344', 'density': '300', 'population': '103328', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BR', 'name': 'Brasil', 'capital': 'Brasília', 'utc': '-3h', 'vt_cod': '0', 'visto_turismo': '', 'vn_cod': '0', 'visto_negocio': '', 'embaixada': ''},
 
-            {'name': 'American Samoa', 'id': 'AS', 'area': '197', 'density': '282', 'population': '55519', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BN', 'name': 'Brunei', 'capital': 'Bandar Seri Begauã', 'utc': '8h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Kuala Lumpur'},
 
-            {'name': 'Vietinã', 'id': 'VN', 'area': '331212', 'density': '268', 'population': '88780000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'BG', 'name': 'Bulgária', 'capital': 'Sófia', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Sófia'},
 
-            {'name': 'United Kingdom', 'id': 'GB', 'area': '242910', 'density': '262', 'population': '64105700', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BF', 'name': 'Burkina Faso', 'capital': 'Uagadugu', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Uagadugu'},
 
-            {'name': 'Trinidad and Tobago', 'id': 'TT', 'area': '5155', 'density': '258', 'population': '1328019', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BI', 'name': 'Burundi', 'capital': 'Bujumbura', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Nairóbi'},
 
-            {'name': 'Jamaica', 'id': 'JM', 'area': '10991', 'density': '247', 'population': '2711476', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'BT', 'name': 'Butão', 'capital': 'Timbu', 'utc': '6h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Nova Dheli'},
 
-            {'name': 'Paquistão', 'id': 'PK', 'area': '803940', 'density': '238.93', 'population': '192084402', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'CV', 'name': 'Cabo Verde', 'capital': 'Praia', 'utc': '-1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Praia'},
 
-            {'name': 'Liechtenstein', 'id': 'LI', 'area': '160', 'density': '230', 'population': '36842', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'CM', 'name': 'Camarões', 'capital': 'Iaundé', 'utc': '1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Iaundê'},
 
-            {'name': 'Alemanha', 'id': 'DE', 'area': '357168', 'density': '228', 'population': '81285000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+            {'id': 'KH', 'name': 'Camboja', 'capital': 'Pnom Pene', 'utc': '7h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Bangkok'},
 
-            {'name': 'Dominican Republic', 'id': 'DO', 'area': '47875', 'density': '220', 'population': '10528000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'CA', 'name': 'Canadá', 'capital': 'Ottawa', 'utc': '-5h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Montreal\nOttawa\nToronto\nVancouver'},
 
-            {'name': 'Cayman Islands', 'id': 'KY', 'area': '259', 'density': '214', 'population': '55456', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'QA', 'name': 'Catar', 'capital': 'Doa', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Doha'},
 
-            {'name': 'Luxembourg', 'id': 'LU', 'area': '2586', 'density': '208', 'population': '537000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'KZ', 'name': 'Cazaquistão', 'capital': 'Astana', 'utc': '6h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 30 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 30 dias', 'embaixada': 'Astana'},
 
-            {'name': 'Italy', 'id': 'IT', 'area': '301308', 'density': '202', 'population': '60762320', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TD', 'name': 'Chade', 'capital': 'Jamena', 'utc': '1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Iaundê'},
 
-            {'name': 'Kuaite', 'id': 'KW', 'area': '17818', 'density': '201', 'population': '3582054', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'CL', 'name': 'Chile', 'capital': 'Santiago', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Santiago'},
 
-            {'name': 'Switzerland', 'id': 'CH', 'area': '41285', 'density': '201', 'population': '8279700', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'CN', 'name': 'China', 'capital': 'Pequim', 'utc': '8h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Cantão\nHong Kong\nPequim\nXangai'},
 
-            {'name': 'Seychelles', 'id': 'SC', 'area': '455', 'density': '200', 'population': '90945', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'CY', 'name': 'Chipre', 'capital': 'Nicósia', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '', 'visto_negocio': 'Visto exigido', 'embaixada': 'Nicósia'},
 
-            {'name': 'British Virgin Islands', 'id': 'VG', 'area': '151', 'density': '196', 'population': '29537', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'CO', 'name': 'Colômbia', 'capital': 'Bogotá', 'utc': '-5h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 180 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Bogotá\nLetícia'},
 
-            {'name': 'Antígua e Barbuda', 'id': 'AG', 'area': '442', 'density': '195', 'population': '86295', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 180 dias', 'visto_cod': '1'},
+            {'id': 'KM', 'name': 'Comores', 'capital': 'Moroni', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Dar es Salaam'},
 
-            {'name': 'Nigéria', 'id': 'NG', 'area': '923768', 'density': '193', 'population': '178517000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'KP', 'name': 'Coréia do Norte', 'capital': 'Pionguiangue', 'utc': '9h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Pyongyang'},
 
-            {'name': 'Nepal', 'id': 'NP', 'area': '147181', 'density': '180', 'population': '26494504', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'KR', 'name': 'Coréia do Sul', 'capital': 'Seul', 'utc': '9h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Seul'},
 
-            {'name': 'Catar', 'id': 'QA', 'area': '11571', 'density': '175', 'population': '2024707', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'XK', 'name': 'Cosovo', 'capital': 'Pristina', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': '', 'vn_cod': '', 'visto_negocio': '', 'embaixada': ''},
 
-            {'name': 'Gâmbia', 'id': 'GM', 'area': '10690', 'density': '173', 'population': '1849000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'CI', 'name': 'Costa do Marfim', 'capital': 'Iamussucro', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Abidjã'},
 
-            {'name': 'Andorra', 'id': 'AD', 'area': '464', 'density': '164', 'population': '76246', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+            {'id': 'CR', 'name': 'Costa Rica', 'capital': 'São José', 'utc': '-6h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'São José'},
 
-            {'name': 'Uganda', 'id': 'UG', 'area': '241551', 'density': '152', 'population': '36600000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'HR', 'name': 'Croácia', 'capital': 'Zagrebe', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Zagreb'},
 
-            {'name': 'Cyprus', 'id': 'CY', 'area': '5896', 'density': '146', 'population': '862000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'CU', 'name': 'Cuba', 'capital': 'Havana', 'utc': '-5h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Havana'},
 
-            {'name': 'Tonga', 'id': 'TO', 'area': '720', 'density': '145', 'population': '104270', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'DK', 'name': 'Dinamarca', 'capital': 'Copenhaga', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Copenhague'},
 
-            {'name': 'Guatemala', 'id': 'GT', 'area': '108889', 'density': '145', 'population': '15806675', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'DJ', 'name': 'Djibouti/ Jibuti', 'capital': 'Jibuti', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Adis Abeba'},
 
-            {'name': 'Anguilla', 'id': 'AI', 'area': '96', 'density': '140', 'population': '13452', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'DM', 'name': 'Dominica', 'capital': 'Roseau', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Roseau'},
 
-            {'name': 'Czech Republic', 'id': 'CZ', 'area': '78867', 'density': '133', 'population': '10517400', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'EG', 'name': 'Egito', 'capital': 'Cairo', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Cairo'},
 
-            {'name': 'Denmark', 'id': 'DK', 'area': '43098', 'density': '131', 'population': '5639719', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'SV', 'name': 'El Salvador', 'capital': 'São Salvador', 'utc': '-6h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'São Salvador'},
 
-            {'name': 'Tailândia', 'id': 'TH', 'area': '513120', 'density': '131', 'population': '65926261', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'AE', 'name': 'Emirados Árabes', 'capital': 'Abu Dabi', 'utc': '4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Abu Dhabi'},
 
-            {'name': 'Indonesia', 'id': 'ID', 'area': '1904569', 'density': '135', 'population': '257080000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'EC', 'name': 'Equador', 'capital': 'Quito', 'utc': '-5h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Quito'},
 
-            {'name': 'Poland', 'id': 'PL', 'area': '312685', 'density': '123', 'population': '38496000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'ER', 'name': 'Eritréia', 'capital': 'Asmara', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Cairo'},
 
-            {'name': 'Cabo Verde', 'id': 'CV', 'area': '4033', 'density': '122', 'population': '491875', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'SK', 'name': 'Eslováquia', 'capital': 'Bratislava', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Bratislava'},
 
-            {'name': 'Malaui', 'id': 'MW', 'area': '118484', 'density': '121', 'population': '14388600', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'SI', 'name': 'Eslovênia', 'capital': 'Liubliana', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Liubliana'},
 
-            {'name': 'França', 'id': 'FR', 'area': '543965', 'density': '118', 'population': '64149000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'ES', 'name': 'Espanha', 'capital': 'Madrid', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Barcelona\nMadri'},
 
-            {'name': 'Síria', 'id': 'SY', 'area': '185180', 'density': '115', 'population': '21377000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'US', 'name': 'Estados Unidos', 'capital': 'Washington, D.C.', 'utc': '-5h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Atlanta\nBoston\nChicago\nHartford \nHouston \nLos Angeles\nMiami \nNova York \nSão Francisco\nWashington'},
 
-            {'name': 'Portugal', 'id': 'PT', 'area': '92090', 'density': '115', 'population': '10562178', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'EE', 'name': 'Estônia', 'capital': 'Talim', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Talin'},
 
-            {'name': 'Eslováquia', 'id': 'SK', 'area': '49036', 'density': '110', 'population': '5410728', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'ET', 'name': 'Etiópia', 'capital': 'Adis Abeba', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Adis Abeba'},
 
-            {'name': 'Togo', 'id': 'TG', 'area': '56600', 'density': '109', 'population': '6191155', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'PH', 'name': 'Filipinas', 'capital': 'Manila', 'utc': '8h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 59 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 59 dias', 'embaixada': 'Manila'},
 
-            {'name': 'Azerbaijão', 'id': 'AZ', 'area': '86600', 'density': '109', 'population': '9477100', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'FI', 'name': 'Finlândia', 'capital': 'Helsínquia', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Helsinque'},
 
-            {'name': 'Hungria', 'id': 'HU', 'area': '93029', 'density': '106', 'population': '9877365', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'FR', 'name': 'França', 'capital': 'Paris', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Paris'},
 
-            {'name': 'Moldova', 'id': 'MD', 'area': '33843', 'density': '105', 'population': '3559500', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'GA', 'name': 'Gabão', 'capital': 'Libreville', 'utc': '1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Libreville'},
 
-            {'name': 'Gana', 'id': 'GH', 'area': '238533', 'density': '103', 'population': '24658823', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'GM', 'name': 'Gâmbia', 'capital': 'Banjul', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Dacar'},
 
-            {'name': 'Cuba', 'id': 'CU', 'area': '109886', 'density': '102', 'population': '11163934', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'GH', 'name': 'Gana', 'capital': 'Acra', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Acra'},
 
-            {'name': 'Armênia', 'id': 'AM', 'area': '29743', 'density': '102', 'population': '3024100', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+            {'id': 'GE', 'name': 'Geórgia', 'capital': 'Tebilíssi', 'utc': '4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até um ano.', 'embaixada': 'Tbilisi'},
 
-            {'name': 'Slovenia', 'id': 'SI', 'area': '20273', 'density': '102', 'population': '2067741', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'GD', 'name': 'Granada', 'capital': 'São Jorge', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': "Saint George's"},
 
-            {'name': 'Áustria', 'id': 'AT', 'area': '83879', 'density': '102', 'population': '8572895', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+            {'id': 'GR', 'name': 'Grécia', 'capital': 'Atenas', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Atenas'},
 
-            {'name': 'Turquia', 'id': 'TR', 'area': '783562', 'density': '101', 'population': '77695904', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'GL', 'name': 'Groenlândia', 'capital': 'Nuuk', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': '-'},
 
-            {'name': 'United Arab Emirates', 'id': 'AE', 'area': '83600', 'density': '99', 'population': '8264070', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'GT', 'name': 'Guatemala', 'capital': 'Cidade da Guatemala', 'utc': '-6h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '', 'visto_negocio': 'Visto exigido', 'embaixada': 'Guatemala'},
 
-            {'name': 'Albânia', 'id': 'AL', 'area': '28703', 'density': '98', 'population': '2821977', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+            {'id': 'GY', 'name': 'Guiana', 'capital': 'Georgetown', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Georgetown'},
 
-            {'name': 'Dominica', 'id': 'DM', 'area': '739', 'density': '96', 'population': '71293', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'GF', 'name': 'Guiana Francesa', 'capital': 'Caiena', 'utc': '-3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Caiena'},
 
-            {'name': 'Espanha', 'id': 'ES', 'area': '505990', 'density': '92', 'population': '46439864', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'GN', 'name': 'Guiné', 'capital': 'Conacri', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Conacri'},
 
-            {'name': 'Serbia', 'id': 'RS', 'area': '77474', 'density': '92', 'population': '7146759', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'GW', 'name': 'Guiné-Bissau', 'capital': 'Bissau', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Bissau'},
 
-            {'name': 'Benin', 'id': 'BJ', 'area': '112622', 'density': '92', 'population': '10323000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'GQ', 'name': 'Guiné-Equatorial', 'capital': 'Malabo', 'utc': '1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Malabo'},
 
-            {'name': 'Costa Rica', 'id': 'CR', 'area': '51100', 'density': '91', 'population': '4667096', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'HT', 'name': 'Haiti', 'capital': 'Porto Príncipe', 'utc': '-5h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Porto Príncipe'},
 
-            {'name': 'Malaysia', 'id': 'MY', 'area': '330803', 'density': '94', 'population': '31009000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'HN', 'name': 'Honduras', 'capital': 'Tegucigalpa', 'utc': '-6h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 30 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 30 dias', 'embaixada': 'Tegucigalpa'},
 
-            {'name': 'Egito', 'id': 'EG', 'area': '1002450', 'density': '90.04', 'population': '90262915', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'HK', 'name': 'Hong Kong', 'capital': 'Central', 'utc': '8h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': ''},
 
-            {'name': 'Serra Leoa', 'id': 'SL', 'area': '71740', 'density': '85', 'population': '6092000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'HU', 'name': 'Hungria', 'capital': 'Budapeste', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Budapeste'},
 
-            {'name': 'Romania', 'id': 'RO', 'area': '238391', 'density': '84', 'population': '20121641', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'YE', 'name': 'Iêmen', 'capital': 'Saná', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Riade'},
 
-            {'name': 'Camboja', 'id': 'KH', 'area': '181035', 'density': '84', 'population': '15184116', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'CR', 'name': 'Ilhas Cook', 'capital': 'Avarua', 'utc': '-10h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': ''},
 
-            {'name': 'Grécia', 'id': 'GR', 'area': '131957', 'density': '84', 'population': '11123034', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'FJ', 'name': 'Ilhas Fiji', 'capital': 'Suva', 'utc': '12h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Camberra'},
 
-            {'name': 'Etiópia', 'id': 'ET', 'area': '1063652', 'density': '83', 'population': '87952991', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'KI', 'name': 'Ilhas Kiribati', 'capital': 'Taraua do Sul', 'utc': '12h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Wellington'},
 
-            {'name': 'Iraque', 'id': 'IQ', 'area': '434128', 'density': '83', 'population': '36004552', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'MV', 'name': 'Ilhas Maldivas', 'capital': 'Malé', 'utc': '5h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 30 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Colombo'},
 
-            {'name': 'Quênia', 'id': 'KE', 'area': '581834', 'density': '78', 'population': '45546000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'MP', 'name': 'Ilhas Marianas', 'capital': '\u200eSaipan', 'utc': '10h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': ''},
 
-            {'name': 'Myanmar/Birmânia', 'id': 'MM', 'area': '676577', 'density': '76', 'population': '51419420', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'MH', 'name': 'Ilhas Marshall', 'capital': 'Majuro', 'utc': '12h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Manila'},
 
-            {'name': 'Croatia', 'id': 'HR', 'area': '56542', 'density': '76', 'population': '4290612', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'MU', 'name': 'Ilhas Maurício', 'capital': 'Porto Luís', 'utc': '4h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Pretória'},
 
-            {'name': 'Honduras', 'id': 'HN', 'area': '112088', 'density': '75', 'population': '8385072', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'SB', 'name': 'Ilhas Salomão', 'capital': 'Honiara', 'utc': '11h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Camberra'},
 
-            {'name': 'Ukraine', 'id': 'UA', 'area': '603628', 'density': '75', 'population': '45377581', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'IN', 'name': 'Índia', 'capital': 'Nova Déli', 'utc': '5h30', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Mumbai \nNova Delhi'},
 
-            {'name': 'Bosnia and Herzegovina', 'id': 'BA', 'area': '51209', 'density': '75', 'population': '3839737', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'ID', 'name': 'Indonésia', 'capital': 'Jacarta', 'utc': '7h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 30 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Jacarta'},
 
-            {'name': 'Morocco', 'id': 'MA', 'area': '446550', 'density': '75.81', 'population': '33852687', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'IR', 'name': 'Irã', 'capital': 'Teerão', 'utc': '3h30', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Teerã'},
 
-            {'name': 'Jordânia', 'id': 'JO', 'area': '89342', 'density': '76.43', 'population': '6828820', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'IQ', 'name': 'Iraque', 'capital': 'Bagdade', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Bagdá'},
 
-            {'name': 'Suazilândia', 'id': 'SZ', 'area': '17364', 'density': '72', 'population': '1250000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'IE', 'name': 'Irlanda', 'capital': 'Dublim', 'utc': '0h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Dublin'},
 
-            {'name': 'Senegal', 'id': 'SN', 'area': '196722', 'density': '69', 'population': '13567338', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'IS', 'name': 'Islândia', 'capital': 'Reiquiavique', 'utc': '0h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Oslo'},
 
-            {'name': 'Uzbequistão', 'id': 'UZ', 'area': '444103', 'density': '69', 'population': '30492800', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'IL', 'name': 'Israel', 'capital': 'Jerusalém', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Tel Aviv'},
 
-            {'name': 'Lesoto', 'id': 'LS', 'area': '30355', 'density': '68', 'population': '2074000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'IT', 'name': 'Itália', 'capital': 'Roma', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Milão\nRoma'},
 
-            {'name': 'Brunei', 'id': 'BN', 'area': '5765', 'density': '68', 'population': '393162', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'JM', 'name': 'Jamaica', 'capital': 'Kingston', 'utc': '-5h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Kingston'},
 
-            {'name': 'Tunisia', 'id': 'TN', 'area': '163610', 'density': '66', 'population': '10777500', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'JP', 'name': 'Japão', 'capital': 'Tóquio', 'utc': '9h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Hamamatsu\nNagoia \nTóquio'},
 
-            {'name': 'Bulgaria', 'id': 'BG', 'area': '111002', 'density': '66', 'population': '7282041', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'JO', 'name': 'Jordânia', 'capital': 'Amã', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Amã'},
 
-            {'name': 'Ireland', 'id': 'IE', 'area': '70273', 'density': '65', 'population': '4585400', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'KW', 'name': 'Kuaite', 'capital': 'Cidade do Cuaite', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Kuwait'},
 
-            {'name': 'Georgia', 'id': 'GE', 'area': '69700', 'density': '64', 'population': '4490500', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'LA', 'name': 'Laos', 'capital': 'Vienciana', 'utc': '7h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Bangkok'},
 
-            {'name': 'Burkina Faso', 'id': 'BF', 'area': '270764', 'density': '64', 'population': '17322796', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'LS', 'name': 'Lesoto', 'capital': 'Maseru', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Pretória'},
 
-            {'name': 'Cook Ilhas', 'id': 'CK', 'area': '237', 'density': '63', 'population': '14974', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'LV', 'name': 'Letônia', 'capital': 'Riga', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Estocolmo'},
 
-            {'name': 'Ecuador', 'id': 'EC', 'area': '255595', 'density': '63', 'population': '16168300', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'LB', 'name': 'Líbano', 'capital': 'Beirute', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Beirute'},
 
-            {'name': 'Mexico', 'id': 'MX', 'area': '1967138', 'density': '61', 'population': '119713203', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'LR', 'name': 'Libéria', 'capital': 'Monróvia', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Monróvia'},
 
-            {'name': 'Guiné-Equatorial', 'id': 'GQ', 'area': '28051', 'density': '58', 'population': '1622000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'LY', 'name': 'Líbia', 'capital': 'Trípoli', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Trípoli'},
 
-            {'name': 'Tadjiquistão', 'id': 'TJ', 'area': '143100', 'density': '57', 'population': '8160000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'LI', 'name': 'Liechtenstein', 'capital': 'Vaduz', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Zurique'},
 
-            {'name': 'Iêmen', 'id': 'YE', 'area': '455000', 'density': '54', 'population': '24527000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'LT', 'name': 'Lituânia', 'capital': 'Vílnius', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Copenhague'},
 
-            {'name': 'Eritréia', 'id': 'ER', 'area': '121100', 'density': '52', 'population': '6333000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'LU', 'name': 'Luxemburgo', 'capital': 'Luxemburgo', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Bruxelas'},
 
-            {'name': 'Tanzânia', 'id': 'TZ', 'area': '883749', 'density': '51', 'population': '44928923', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'MO', 'name': 'Macau', 'capital': 'Não possui', 'utc': '8h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': ''},
 
-            {'name': 'Nicaragua', 'id': 'NI', 'area': '121428', 'density': '50', 'population': '6071045', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'MK', 'name': 'Macedônia', 'capital': 'Escópia', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Sofia'},
 
-            {'name': 'Irã', 'id': 'IR', 'area': '1648195', 'density': '47.9', 'population': '78952792', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'MG', 'name': 'Madagascar', 'capital': 'Antananarivo', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Maputo'},
 
-            {'name': 'Fiji', 'id': 'FJ', 'area': '18333', 'density': '47', 'population': '858038', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'MY', 'name': 'Malásia', 'capital': 'Cuala Lumpur', 'utc': '8h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Kuala Lumpur'},
 
-            {'name': 'Panama', 'id': 'PA', 'area': '74177', 'density': '46', 'population': '3405813', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'MW', 'name': 'Malaui', 'capital': 'Lilôngue', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Lilongue'},
 
-            {'name': 'Belarus', 'id': 'BY', 'area': '207600', 'density': '46', 'population': '9469200', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+            {'id': 'ML', 'name': 'Mali', 'capital': 'Bamaco', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Bamako'},
 
-            {'name': 'Lithuania', 'id': 'LT', 'area': '65300', 'density': '45', 'population': '2944459', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'MT', 'name': 'Malta', 'capital': 'Valeta', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Roma'},
 
-            {'name': 'Montenegro', 'id': 'ME', 'area': '13812', 'density': '45', 'population': '620029', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'MA', 'name': 'Marrocos', 'capital': 'Rebate', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Rabat'},
 
-            {'name': 'Camarões', 'id': 'CM', 'area': '466050', 'density': '44', 'population': '20386799', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'MR', 'name': 'Mauritânia', 'capital': 'Nuaquechote', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Nouakchott'},
 
-            {'name': 'Guiné', 'id': 'GN', 'area': '245857', 'density': '43', 'population': '10628972', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'MX', 'name': 'México', 'capital': 'Cidade do México', 'utc': '-6h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Cidade do México'},
 
-            {'name': 'África do Sul', 'id': 'ZA', 'area': '1220813', 'density': '43', 'population': '52981991', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+            {'id': 'FM', 'name': 'Micronésia', 'capital': 'Paliquir', 'utc': '11h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 30 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Manila'},
 
-            {'name': 'Palau', 'id': 'PW', 'area': '488', 'density': '43', 'population': '20901', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'MZ', 'name': 'Moçambique', 'capital': 'Maputo', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Maputo'},
 
-            {'name': 'Guiné-Bissau', 'id': 'GW', 'area': '36125', 'density': '42', 'population': '1520830', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'MD', 'name': 'Moldova', 'capital': 'Quixinau', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Kiev'},
 
-            {'name': 'Colombia', 'id': 'CO', 'area': '1141748', 'density': '42.47', 'population': '48491772', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'MC', 'name': 'Mônaco', 'capital': 'Mónaco', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Paris'},
 
-            {'name': 'Afeganistão', 'id': 'AF', 'area': '645807', 'density': '39', 'population': '25500100', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'MN', 'name': 'Mongólia', 'capital': 'Ulã Bator', 'utc': '8h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Pequim'},
 
-            {'name': 'Djibuti', 'id': 'DJ', 'area': '23000', 'density': '38', 'population': '864618', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'ME', 'name': 'Montenegro', 'capital': 'Podgoritsa', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Belgrado'},
 
-            {'name': 'Libéria', 'id': 'LR', 'area': '97036', 'density': '36', 'population': '3476608', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'MM', 'name': 'Myanmar', 'capital': 'Nepiedó', 'utc': '6h30', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Yangon'},
 
-            {'name': 'Madagascar', 'id': 'MG', 'area': '587041', 'density': '35', 'population': '20696070', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'NA', 'name': 'Namíbia', 'capital': 'Vinduque', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Windhoek'},
 
-            {'name': 'Faroe Islands', 'id': 'FO', 'area': '1399', 'density': '34', 'population': '48244', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'NR', 'name': 'Nauru', 'capital': 'Iarém', 'utc': '12h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 30 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Cambera'},
 
-            {'name': 'Zimbábue', 'id': 'ZW', 'area': '390757', 'density': '33', 'population': '12973808', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'NP', 'name': 'Nepal', 'capital': 'Catmandu', 'utc': '5h45', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Katmandu'},
 
-            {'name': 'Estados Unidos', 'id': 'US', 'area': '9826675', 'density': '32.84', 'population': '322686937', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'NI', 'name': 'Nicarágua', 'capital': 'Manágua', 'utc': '-6h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Manágua'},
 
-            {'name': 'Venezuela', 'id': 'VE', 'area': '916445', 'density': '32', 'population': '28946101', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'NE', 'name': 'Níger', 'capital': 'Niamei', 'utc': '1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Cotonou'},
 
-            {'name': 'Latvia', 'id': 'LV', 'area': '64562', 'density': '31', 'population': '2005200', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'NG', 'name': 'Nigéria', 'capital': 'Abuja', 'utc': '1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Abuja \nLagos'},
 
-            {'name': 'Moçambique', 'id': 'MZ', 'area': '799380', 'density': '29.6', 'population': '23700715', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'NO', 'name': 'Noruega', 'capital': 'Oslo', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Oslo'},
 
-            {'name': 'Quirguistão', 'id': 'KG', 'area': '199945', 'density': '29.5', 'population': '5895100', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'NZ', 'name': 'Nova Zelândia', 'capital': 'Wellington', 'utc': '12h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Wellington'},
 
-            {'name': 'Estonia', 'id': 'EE', 'area': '45339', 'density': '29', 'population': '1313271', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'OM', 'name': 'Omã', 'capital': 'Mascate', 'utc': '4h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Mascate'},
 
-            {'name': 'Laos', 'id': 'LA', 'area': '236800', 'density': '27.8', 'population': '6580800', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'CD', 'name': 'República Democrática do Congo', 'capital': 'Kinshasa', 'utc': '1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Kinshasa'},
 
-            {'name': 'Bahamas', 'id': 'BS', 'area': '13940', 'density': '25.2', 'population': '351461', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+            {'id': 'CG', 'name': 'República do Congo', 'capital': 'Brazavile', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': '', 'vn_cod': '0', 'visto_negocio': '', 'embaixada': 'Brazzaville'},
 
-            {'name': 'Brasil', 'id': 'BR', 'area': '8515767', 'density': '23.8', 'population': '202768562', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'SG', 'name': 'Singapura', 'capital': 'Singapura', 'utc': '8h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 30 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 30 dias', 'embaixada': 'Cingapura'},
 
-            {'name': 'Peru', 'id': 'PE', 'area': '1285216', 'density': '23.7', 'population': '30475144', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'PW', 'name': 'Palestina', 'capital': 'Jerusalém Oriental', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Ramala'},
 
-            {'name': 'Chile', 'id': 'CL', 'area': '756096', 'density': '22', 'population': '16634603', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'PA', 'name': 'Panamá', 'capital': 'Cidade do Panamá', 'utc': '-5h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Cidade do Panamá'},
 
-            {'name': 'Sweden', 'id': 'SE', 'area': '449964', 'density': '21.7', 'population': '9747355', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'PG', 'name': 'Papua Nova Guiné', 'capital': 'Porto Moresby', 'utc': '10h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Camberra'},
 
-            {'name': 'Butão', 'id': 'BT', 'area': '38394', 'density': '20', 'population': '769500', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'PK', 'name': 'Paquistão', 'capital': 'Islamabade', 'utc': '5h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Islamabade'},
 
-            {'name': 'Uruguai', 'id': 'UY', 'area': '176215', 'density': '18.6', 'population': '3286314', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'PY', 'name': 'Paraguai', 'capital': 'Assunção', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Assunção \nCiudad del Este \nConcepción \nEncarnación \nPedro Juan Caballero \nSalto del Guairá'},
 
-            {'name': 'Finland', 'id': 'FI', 'area': '338424', 'density': '16.2', 'population': '5489057', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'PE', 'name': 'Peru', 'capital': 'Lima', 'utc': '-5h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Iquitos\nLima'},
 
-            {'name': 'Sudão do Sul', 'id': 'SS', 'area': '644329', 'density': '17.5', 'population': '11296000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'PL', 'name': 'Polônia', 'capital': 'Varsóvia', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Varsóvia'},
 
-            {'name': 'Zâmbia', 'id': 'ZM', 'area': '752612', 'density': '17.4', 'population': '13092666', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'PR', 'name': 'Porto Rico', 'capital': 'San Juan', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': '', 'vn_cod': '0', 'visto_negocio': '', 'embaixada': 'Miami'},
 
-            {'name': 'Sudão', 'id': 'SD', 'area': '1839542', 'density': '16.8', 'population': '30894000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'PT', 'name': 'Portugal', 'capital': 'Lisboa', 'utc': '0h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Faro\nLisboa\nPorto'},
 
-            {'name': 'New Zealand', 'id': 'NZ', 'area': '270467', 'density': '17.21', 'population': '4654002', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'KE', 'name': 'Quênia', 'capital': 'Nairóbi', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Nairóbi'},
 
-            {'name': 'Angola', 'id': 'AO', 'area': '1246700', 'density': '16.5', 'population': '20609294', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'KG', 'name': 'Quirguistão', 'capital': 'Bisqueque', 'utc': '6h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Astana'},
 
-            {'name': 'Paraguai', 'id': 'PY', 'area': '406752', 'density': '16.4', 'population': '6672631', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'GB', 'name': 'Reino Unido', 'capital': 'Londres', 'utc': '0h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 180 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 180 dias', 'embaixada': 'Londres'},
 
-            {'name': 'Argélia', 'id': 'DZ', 'area': '2381741', 'density': '16.2', 'population': '38700000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'NL', 'name': 'Países Baixos / Holanda', 'capital': 'Amesterdão', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Amsterdã'},
 
-            {'name': 'Norway', 'id': 'NO', 'area': '323782', 'density': '15.6', 'population': '5063709', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'PW', 'name': 'Palau', 'capital': 'Ngerulmud', 'utc': '9h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 30 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Manila'},
 
-            {'name': 'Papua Nova Guiné', 'id': 'PG', 'area': '462840', 'density': '16', 'population': '7398500', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': '', 'name': 'República Árabe Saaraui Democrática', 'capital': 'Tifariti ', 'utc': '0h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto', 'vn_cod': '0', 'visto_negocio': '', 'embaixada': ''},
 
-            {'name': 'Somália', 'id': 'SO', 'area': '637657', 'density': '14.6', 'population': '9331000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'CF', 'name': 'República Centro-Africana', 'capital': 'Quinxassa', 'utc': '1h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Brazzaville'},
 
-            {'name': 'Niger', 'id': 'NE', 'area': '1186408', 'density': '14.4', 'population': '17129076', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'CZ', 'name': 'República Checa', 'capital': 'Praga', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Praga'},
 
-            {'name': 'Argentina', 'id': 'AR', 'area': '2780400', 'density': '14.4', 'population': '40117096', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'visto_cod': '1'},
+            {'id': 'DO', 'name': 'República Dominicana', 'capital': 'São Domingos', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'São Domingos'},
 
-            {'name': 'Belize', 'id': 'BZ', 'area': '22965', 'density': '14.1', 'population': '324528', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'RO', 'name': 'Romênia', 'capital': 'Bucareste', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Bucareste'},
 
-            {'name': 'Arábia Saudita', 'id': 'SA', 'area': '2149690', 'density': '14', 'population': '29994272', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'RW', 'name': 'Ruanda', 'capital': 'Quigali', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Nairóbi'},
 
-            {'name': 'Omã', 'id': 'OM', 'area': '309500', 'density': '13.5', 'population': '4183841', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'RU', 'name': 'Rússia', 'capital': 'Moscovo', 'utc': '3h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Moscou'},
 
-            {'name': 'Mali', 'id': 'ML', 'area': '1248574', 'density': '11.6', 'population': '14528662', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'WS', 'name': 'Samoa Ocidental', 'capital': 'Apia', 'utc': '13h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 60 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 60 dias', 'embaixada': 'Sydney'},
 
-            {'name': 'Turcomenistão', 'id': 'TM', 'area': '491210', 'density': '10.7', 'population': '5240000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'LC', 'name': 'Santa Lúcia', 'capital': 'Castries', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Castries'},
 
-            {'name': 'Bolivia', 'id': 'BO', 'area': '1098581', 'density': '9.46', 'population': '10389913', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'KN', 'name': 'São Cristovão e Nevis', 'capital': 'Basseterre', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Basseterre'},
 
-            {'name': 'Chade', 'id': 'TD', 'area': '1284000', 'density': '8.78', 'population': '11274106', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'SM', 'name': 'São Marinho', 'capital': 'San Marino', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': '', 'vn_cod': '0', 'visto_negocio': '', 'embaixada': 'Roma'},
 
-            {'name': 'Russia', 'id': 'RU', 'area': '17098242', 'density': '8.42', 'population': '143975923', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'SX', 'name': 'São Martinho', 'capital': 'Philipsburg', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': ''},
 
-            {'name': 'Rep. Centro Africana', 'id': 'CF', 'area': '622436', 'density': '7.42', 'population': '4616000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'ST', 'name': 'São Tomé e Píncipe', 'capital': 'São Tomé', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'São Tomé'},
 
-            {'name': 'Gabão', 'id': 'GA', 'area': '267667', 'density': '6.25', 'population': '1672000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'VC', 'name': 'São Vicente e Granadinas', 'capital': 'Kingstown', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Kingstown'},
 
-            {'name': 'Kazakhstan', 'id': 'KZ', 'area': '2724900', 'density': '6.31', 'population': '17186000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'SN', 'name': 'Senegal', 'capital': 'Dacar', 'utc': '0h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de Visto, por até 30 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de Visto, por até 30 dias', 'embaixada': 'Dacar'},
 
-            {'name': 'Guyana', 'id': 'GY', 'area': '214999', 'density': '3.65', 'population': '784894', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'SL', 'name': 'Serra Leoa', 'capital': 'Freetown', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Freetown'},
 
-            {'name': 'Canadá', 'id': 'CA', 'area': '0', 'density': '3.63', 'population': '36256492', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'RS', 'name': 'Sérvia', 'capital': 'Belgrado', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Belgrado'},
 
-            {'name': 'Líbia', 'id': 'LY', 'area': '1770060', 'density': '3.5', 'population': '6244174', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'SC', 'name': 'Ilhas Seychelles', 'capital': 'Vitória', 'utc': '4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Dar Es Salaam'},
 
-            {'name': 'Botswana', 'id': 'BW', 'area': '581730', 'density': '3.48', 'population': '2024904', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'SY', 'name': 'Síria', 'capital': 'Damasco', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Damasco'},
 
-            {'name': 'Mauritânia', 'id': 'MR', 'area': '1030700', 'density': '3.36', 'population': '3461041', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'SO', 'name': 'Somália', 'capital': 'Mogadíscio', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Nairóbi'},
 
-            {'name': 'Suriname', 'id': 'SR', 'area': '163820', 'density': '3.26', 'population': '534189', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'LK', 'name': 'Sri Lanka', 'capital': 'Sri Jaiavardenapura-Cota', 'utc': '5h30', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Colombo'},
 
-            {'name': 'Iceland', 'id': 'IS', 'area': '102800', 'density': '3.21', 'population': '329740', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'SZ', 'name': 'Suazilândia', 'capital': 'Lobamba', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Maputo'},
 
-            {'name': 'Austrália', 'id': 'AU', 'area': '7692024', 'density': '3.12', 'population': '23975613', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'SD', 'name': 'Sudão', 'capital': 'Cartum', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Cartum'},
 
-            {'name': 'Namibia', 'id': 'NA', 'area': '825118', 'density': '2.56', 'population': '2113077', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'SS', 'name': 'Sudão do Sul', 'capital': 'Juba', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Adis Abeba'},
 
-            {'name': 'Western Sahara', 'id': 'EH', 'area': '252120', 'density': '2.25', 'population': '567000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'SE', 'name': 'Suécia', 'capital': 'Estocolmo', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Estocolmo'},
 
-            {'name': 'Mongolia', 'id': 'MN', 'area': '1564100', 'density': '1.92', 'population': '3000000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'CH', 'name': 'Suíça', 'capital': 'Berna', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Genebra \nZurique'},
 
-            {'name': 'Pitcairn Islands', 'id': 'PN', 'area': '47', 'density': '1.19', 'population': '56', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'SR', 'name': 'Suriname', 'capital': 'Paramaribo', 'utc': '-3h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Paramaribo'},
 
-            {'name': 'Falkland Islands', 'id': 'FK', 'area': '12173', 'density': '0.21', 'population': '2563', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TJ', 'name': 'Tadjiquistão', 'capital': 'Duchambé', 'utc': '5h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Islamabade'},
 
-            {'name': 'Greenland', 'id': 'GL', 'area': '2166000', 'density': '0.03', 'population': '55984', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TH', 'name': 'Tailândia', 'capital': 'Banguecoque', 'utc': '7h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Bangkok'},
 
-            {'name': 'Macau', 'id': 'MO', 'area': '30.3', 'density': '21224', 'population': '643100', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TW', 'name': 'Taiwan', 'capital': 'Taipé', 'utc': '8h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Taipé'},
 
-            {'name': 'Gibraltar', 'id': 'GI', 'area': '7', 'density': '4250', 'population': '29752', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TZ', 'name': 'Tanzânia', 'capital': 'Dodoma', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Dar es Salaam'},
 
-            {'name': 'Sint Maarten', 'id': 'SX', 'area': '34', 'density': '1101', 'population': '37429', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TL', 'name': 'Timor Leste', 'capital': 'Díli', 'utc': '9h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Díli'},
 
-            {'name': 'Jersey', 'id': 'JE', 'area': '116', 'density': '844', 'population': '97857', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TG', 'name': 'Togo', 'capital': 'Lomé', 'utc': '0h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Lomé'},
 
-            {'name': 'Guernsey', 'id': 'GG', 'area': '78', 'density': '800', 'population': '62431', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TO', 'name': 'Tonga', 'capital': 'Nucualofa', 'utc': '13h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 30 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Wellington'},
 
-            {'name': 'Palestine', 'id': 'PS', 'area': '6020', 'density': '756', 'population': '4550368', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TT', 'name': 'Trinidad e Tobago', 'capital': 'Porto de Espanha', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Port-of-Spain'},
 
-            {'name': 'Taiwan', 'id': 'TW', 'area': '36191', 'density': '647', 'population': '23410280', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'TN', 'name': 'Tunísia', 'capital': 'Tunes', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Túnis'},
 
-            {'name': 'Mayotte', 'id': 'YT', 'area': '374', 'density': '568', 'population': '212600', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TM', 'name': 'Turcomenistão', 'capital': 'Asgabate', 'utc': '5h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Astana'},
 
-            {'name': 'South Korea', 'id': 'KR', 'area': '100210', 'density': '503', 'population': '50423955', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TR', 'name': 'Turquia', 'capital': 'Ancara', 'utc': '3h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Ancara \nIstambul'},
 
-            {'name': 'Nauru', 'id': 'NR', 'area': '21', 'density': '480', 'population': '10084', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'TV', 'name': 'Tuvalu', 'capital': 'Funafuti', 'utc': '12h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'visto exigido', 'embaixada': 'Wellington'},
 
-            {'name': 'Tuvalu', 'id': 'TV', 'area': '26', 'density': '436', 'population': '11323', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'UA', 'name': 'Ucrânia', 'capital': 'Quieve', 'utc': '2h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Kiev'},
 
-            {'name': 'Saint Barthélemy', 'id': 'BL', 'area': '21', 'density': '426', 'population': '8938', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'UG', 'name': 'Uganda', 'capital': 'Campala', 'utc': '3h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Nairóbi'},
 
-            {'name': 'Martinique', 'id': 'MQ', 'area': '1128', 'density': '349', 'population': '394173', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'UY', 'name': 'Uruguai', 'capital': 'Montevideu', 'utc': '-3h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '0', 'visto_negocio': 'Dispensa de visto, por até 90 dias', 'embaixada': 'Artigas\nChuí \nMontevidéu\nRio Branco\nRivera'},
 
-            {'name': 'Curaçao', 'id': 'CW', 'area': '444', 'density': '339', 'population': '150563', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'UZ', 'name': 'Uzbequistão', 'capital': 'Tasquente', 'utc': '5h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Moscou'},
 
-            {'name': 'Réunion', 'id': 'RE', 'area': '2512', 'density': '327', 'population': '821136', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto 0 dias', 'visto_cod': '0'},
+            {'id': 'VU', 'name': 'Vanuatu', 'capital': 'Porto Vila', 'utc': '11h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Camberra'},
 
-            {'name': 'Marshall, Ilhas', 'id': 'MH', 'area': '181', 'density': '310', 'population': '56086', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
+            {'id': 'VA', 'name': 'Vaticano', 'capital': 'Vaticano', 'utc': '1h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 90 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Vaticano'},
 
-            {'name': 'United States Virgin Islands', 'id': 'VI', 'area': '352', 'density': '302', 'population': '106405', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto 0 dias', 'visto_cod': '0'},
+            {'id': 'VE', 'name': 'Venezuela', 'capital': 'Caracas', 'utc': '-4h', 'vt_cod': '0', 'visto_turismo': 'Dispensa de visto, por até 60 dias', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Caracas\nCiudad Guayana\nPuerto Ayacucho\nSanta Elena de Uiarén'},
 
-            {'name': 'Guam', 'id': 'GU', 'area': '541', 'density': '295', 'population': '159358', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'VN', 'name': 'Vietinã', 'capital': 'Hanói', 'utc': '7h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Hanoi'},
 
-            {'name': 'Saint Lucia', 'id': 'LC', 'area': '617', 'density': '270', 'population': '166526', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
+            {'id': 'ZM', 'name': 'Zâmbia', 'capital': 'Lusaca', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Lusaca'},
 
-            {'name': 'Saint Vincent and the Grenadines', 'id': 'VC', 'area': '389', 'density': '259', 'population': '100892', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Guadeloupe', 'id': 'GP', 'area': '1630', 'density': '247', 'population': '403355', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Coréia do Norte', 'id': 'KP', 'area': '122762', 'density': '205', 'population': '25155000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
-
-            {'name': 'Saint Kitts and Nevis', 'id': 'KN', 'area': '270', 'density': '192', 'population': '51970', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'São Tomé e Príncipe', 'id': '\tST', 'area': '1001', 'density': '187', 'population': '187356', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
-
-            {'name': 'Kosovo', 'id': 'XK', 'area': '10910', 'density': '166', 'population': '1815606', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Isle of Man', 'id': 'IM', 'area': '572', 'density': '148', 'population': '84497', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Kiribati', 'id': 'KI', 'area': '726', 'density': '147', 'population': '106461', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
-
-            {'name': 'Federated States of Micronesia', 'id': 'FM', 'area': '701', 'density': '145', 'population': '101351', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'China', 'id': 'CN', 'area': '9640821', 'density': '142.56', 'population': '1374421995', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
-
-            {'name': 'Tokelau', 'id': 'TK', 'area': '10', 'density': '141', 'population': '1411', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Marianas', 'id': 'MP', 'area': '457', 'density': '118', 'population': '53883', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
-
-            {'name': 'Macedonia', 'id': 'MK', 'area': '25713', 'density': '80', 'population': '2062294', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'French Polynesia', 'id': 'PF', 'area': '3521', 'density': '76', 'population': '268270', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Costa do Marfim', 'id': 'CI', 'area': '322921', 'density': '72', 'population': '23202000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
-
-            {'name': 'Timor-Leste', 'id': 'TL', 'area': '14919', 'density': '71', 'population': '1066409', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
-
-            {'name': 'Samoa', 'id': 'WS', 'area': '2831', 'density': '66', 'population': '187820', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Caribbean Netherlands', 'id': 'BQ', 'area': '322', 'density': '66', 'population': '21133', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Norfolk Island', 'id': 'NF', 'area': '35', 'density': '66', 'population': '2302', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Turks and Caicos Islands', 'id': 'TC', 'area': '497', 'density': '63', 'population': '31458', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Montserrat', 'id': 'MS', 'area': '102', 'density': '48', 'population': '4922', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Wallis and Futuna', 'id': 'WF', 'area': '274', 'density': '48', 'population': '13135', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Cocos Islands', 'id': 'CC', 'area': '14', 'density': '39', 'population': '550', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Saint Helena, Ascension and Tristan da Cunha', 'id': 'SH', 'area': '122', 'density': '35', 'population': '4255', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Congo, República Democrática (ex-Zaire)', 'id': 'CD', 'area': '2345095', 'density': '29.6', 'population': '69360000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
-
-            {'name': 'Saint Pierre and Miquelon', 'id': 'PM', 'area': '242', 'density': '25.1', 'population': '6081', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Vanuatu', 'id': 'VU', 'area': '12190', 'density': '21.7', 'population': '264652', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
-
-            {'name': 'Ilhas Salomão', 'id': 'SB', 'area': '28370', 'density': '18.2', 'population': '515870', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
-
-            {'name': 'Christmas Island', 'id': 'CX', 'area': '137', 'density': '15.1', 'population': '2072', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'New Caledonia', 'id': 'NC', 'area': '18575', 'density': '13.9', 'population': '258958', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Republic of the Congo', 'id': 'CG', 'area': '342000', 'density': '13', 'population': '4448000', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Niue', 'id': 'NU', 'area': '261', 'density': '6.18', 'population': '1613', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'},
-
-            {'name': 'Guiana Francesa', 'id': 'GF', 'area': '86504', 'density': '2.65', 'population': '229040', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Visto exigido', 'visto_cod': '2'},
-
-            {'name': 'Svalbard and Jan Mayen', 'id': 'SJ', 'area': '61399', 'density': '0.04', 'population': '2655', 'utc': '+4', 'max': '19', 'min': '29', 'visto_turismo': 'Dispensa de visto', 'visto_cod': '0'}
-
+            {'id': 'ZW', 'name': 'Zimbábue', 'capital': 'Harare', 'utc': '2h', 'vt_cod': '1', 'visto_turismo': 'Visto exigido', 'vn_cod': '1', 'visto_negocio': 'Visto exigido', 'embaixada': 'Harare'},
         ];
+
 
         anychart.onDocumentReady(function () {
             var map = anychart.map();
@@ -670,14 +604,13 @@
                       .useHtml(true)
                       .padding([10, 0, 10, 0])
                       .text('VISTO DE TURISMO PARA BRASILEIROS <br/>' +
-                              '<span  style="color:#929292; font-size: 12px;">(Data source: Itamaraty, 2019)</span>');
+                              '<span  style="color:#929292; font-size: 12px;">(Fonte: Itamaraty, 2019)</span>');
 
               map.geoData('anychart.maps.world');
               map.interactivity().selectionMode('none');
               map.padding(0);
-
-              var dataSet = anychart.data.set(teste);
-              var filter_data = dataSet.mapAs({'value': 'visto_cod'});
+              var dataSet = anychart.data.set(paises);
+              var filter_data = dataSet.mapAs({'value': 'vt_cod'});
 
 
               var series = map.choropleth(filter_data);
@@ -685,33 +618,44 @@
               series.labels(false);
 
               series.hovered()
-                      .fill('#B73FFF')
+                      .fill('#867D8A')
                       .stroke(anychart.color.darken('#7133FF'));
 
               series.selected()
                       .fill('#ffc107')
                       .stroke(anychart.color.darken('#1687CC'));
 
+
               series.tooltip()
+                      .title(false)
+                      .separator(false)
                       .useHtml(true)
                       .format(function () {
-                          return '<span style="color: #d9d9d9">Visto</span>: ' +
-                                  (this.getData('visto_turismo')).toLocaleString() + '<br/>'
-
-
+                          return '<span style="color: #d9d9d9">País</span>: ' +
+                                  (this.getData('name')).toLocaleString() + '<br/>'+
+                                  '<span style="color: #d9d9d9">Capital</span>: ' +
+                                  (this.getData('capital')).toLocaleString() + '<br/>'+
+                                  '<span style="color: #d9d9d9">UTC</span>: ' +
+                                  (this.getData('utc')).toLocaleString() + '<br/>'+
+                                  '<span style="color: #d9d9d9">Visto Turismo</span>: ' +
+                                  (this.getData('visto_turismo')).toLocaleString() + '<br/>'+
+                                  '<span style="color: #d9d9d9">Visto Negócio</span>: ' +
+                                  (this.getData('visto_negocio')).toLocaleString() + '<br/>'+
+                                  '<span style="color: #d9d9d9">Embaixada Brasileira</span>: ' +
+                                  (this.getData('embaixada')).toLocaleString() + '<br/>'
                       });
 
               var scale = anychart.scales.ordinalColor([
-                  {less: 1.1},
-                  {greater: 1.9}
+                  {less: 0.9},
+                  {greater: 0.9}
 
               ]);
 
-              scale.colors(['#FFD336', '#75A6FF']);
+              scale.colors(['#C8F57A', '#f36162']);
 
               var colorRange = map.colorRange();
               colorRange.enabled(true)
-                      .padding([0, 0, 20, 0]);
+                      .padding([10, 0, 20, 0]);
 
               colorRange.ticks()
                       .enabled(true)
@@ -719,7 +663,7 @@
                       .position('center')
                       .length(7);
 
-              colorRange.colorLineSize(5);
+              colorRange.colorLineSize(6);
               colorRange.marker().size(7);
 
 
@@ -926,49 +870,49 @@
           </div>
         </div>
 
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/paises/reino_unido.png" alt="Reino Unido">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Reino Unido</h4>
-<!--            <p class="text-muted">Branding</p>-->
-          </div>
-        </div>
+<!--        <div class="col-md-4 col-sm-6 portfolio-item">-->
+<!--          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">-->
+<!--            <div class="portfolio-hover">-->
+<!--              <div class="portfolio-hover-content">-->
+<!--                <i class="fas fa-plus fa-3x"></i>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <img class="img-fluid" src="img/paises/reino_unido.png" alt="Reino Unido">-->
+<!--          </a>-->
+<!--          <div class="portfolio-caption">-->
+<!--            <h4>Reino Unido</h4>-->
+<!--&lt;!&ndash;            <p class="text-muted">Branding</p>&ndash;&gt;-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/paises/irlanda.png" alt="Irlanda">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Irlanda</h4>
-<!--            <p class="text-muted">Website Design</p>-->
-          </div>
-        </div>
+<!--        <div class="col-md-4 col-sm-6 portfolio-item">-->
+<!--          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">-->
+<!--            <div class="portfolio-hover">-->
+<!--              <div class="portfolio-hover-content">-->
+<!--                <i class="fas fa-plus fa-3x"></i>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <img class="img-fluid" src="img/paises/irlanda.png" alt="Irlanda">-->
+<!--          </a>-->
+<!--          <div class="portfolio-caption">-->
+<!--            <h4>Irlanda</h4>-->
+<!--&lt;!&ndash;            <p class="text-muted">Website Design</p>&ndash;&gt;-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/paises/franca.png" alt="França">
-          </a>
-          <div class="portfolio-caption">
-            <h4>França</h4>
-<!--            <p class="text-muted">Photography</p>-->
-          </div>
+<!--        <div class="col-md-4 col-sm-6 portfolio-item">-->
+<!--          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">-->
+<!--            <div class="portfolio-hover">-->
+<!--              <div class="portfolio-hover-content">-->
+<!--                <i class="fas fa-plus fa-3x"></i>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <img class="img-fluid" src="img/paises/franca.png" alt="França">-->
+<!--          </a>-->
+<!--          <div class="portfolio-caption">-->
+<!--            <h4>França</h4>-->
+<!--&lt;!&ndash;            <p class="text-muted">Photography</p>&ndash;&gt;-->
+<!--          </div>-->
         </div>
       </div>
     </div>
@@ -1188,10 +1132,12 @@
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">Estados Unidos</h2>
-                <p class="item-intro text-muted">Consulados-Gerais(Embaixadas) do Brasil nos Estados Unidos</p>
+                <p class="item-intro text-muted">Embaixadas do Brasil nos Estados Unidos</p>
+                <img class="img-fluid2 d-block mx-auto" src="img/paises/estados_unidos.png" alt="">
+                <br>
                 <img class="img-fluid2 d-block mx-auto" src="img/paises/embaixada_estados_unidos.png" alt="">
                 <p style="text-align: left">
-                  <strong>Consulado-Geral do Brasil em Atlanta</strong><br>
+                  <strong>Embaixada do Brasil em Atlanta</strong><br>
                   <strong>Endereço: </strong>3500 Lenox Road, Suite 800 Atlanta, GA 30326<br>
                   <strong>Tel: </strong> (404) 949-2400<br>
                   <strong>Fax: </strong> (404) 949-2402<br>
@@ -1199,7 +1145,7 @@
                   <strong>Email: </strong>cg.atlanta@itamaraty.gov.br<br>
                   <strong>Jurisdição: </strong> Alabama, Georgia, Mississippi, South Carolina e Tennessee.
                   <br><br>
-                  <strong>Consulado-Geral do Brasil em Boston</strong><br>
+                  <strong>Embaixada do Brasil em Boston</strong><br>
                   <strong>Endereço: </strong>175 Purchase St. Boston, MA 02110<br>
                   <strong>Tel: </strong>(617) 542-4000<br>
                   <strong>Fax: </strong>(617) 542-4318<br>
@@ -1207,7 +1153,7 @@
                   <strong>Email: </strong>contato.boston@itamaraty.gov.br<br>
                   <strong>Jurisdição: </strong>Maine, Massachusetts, New Hampshire, e Vermont.
                   <br><br>
-                  <strong>Consulado-Geral do Brasil em Chicago</strong><br>
+                  <strong>Embaixada do Brasil em Chicago</strong><br>
                   <strong>Endereço: </strong>401 North Michigan Ave., Suite 1850 Chicago, IL 60611-4207<br>
                   <strong>Tel: </strong>(312) 464-0245<br>
                   <strong>Fax: </strong>(312) 464-0299<br>
@@ -1215,14 +1161,14 @@
                   <strong>Email: </strong>central.chicago@itamaraty.gov.br<br>
                   <strong>Jurisdição: </strong>Illinois, Indiana, Iowa, Michigan, Minnesota, Missouri, Nebraska, North Dakota, South Dakota e Wisconsin.
                   <br><br>
-                  <strong>Consulado-Geral do Brasil em Hartford</strong><br>
+                  <strong>Embaixada do Brasil em Hartford</strong><br>
                   <strong>Endereço: </strong>One Constitution Plaza Hartford, CT 06103<br>
                   <strong>Tel: </strong>(860) 760-3100<br>
                   <strong>Website: </strong>http://hartford.itamaraty.gov.br<br>
                   <strong>E-mail: </strong>cghartford@itamaraty.gov.br<br>
                   <strong>Jurisdição: </strong>Connecticut e Rhode Island
                   <br><br>
-                  <strong>Consulado-Geral do Brasil em Houston</strong><br>
+                  <strong>Embaixada do Brasil em Houston</strong><br>
                   <strong>Endereço: </strong>1233 West Loop South, Suite 1150 Houston, TX 77027<br>
                   <strong>Tel: </strong>(713) 961-3063<br>
                   <strong>Fax: </strong>(713) 961-3070<br>
@@ -1230,7 +1176,7 @@
                   <strong>E-mail: </strong>consular.houston@itamaraty.gov.br<br>
                   <strong>Jurisdição: </strong>Arkansas, Colorado, Kansas, Louisiana, Novo Mexico, Oklahoma e Texas.
                   <br><br>
-                  <strong>Consulado-Geral do Brasil em Los Angeles</strong><br>
+                  <strong>Embaixada do Brasil em Los Angeles</strong><br>
                   <strong>Endereço: </strong>8484 Wilshire Blvd., Suite 300 Beverly Hills, CA 90211<br>
                   <strong>Tel: </strong>(323) 651-2664<br>
                   <strong>Fax: </strong>(323) 651-1274<br>
@@ -1238,7 +1184,7 @@
                   <strong>E-mail: </strong>cg.losangeles@itamaraty.gov.br<br>
                   <strong>Jurisdição: </strong>Arizona, Hawaii, Idaho, Montana, Nevada, Utah e Wyoming. Os seguintes condados na California: Imperial, Kern, Los Angeles, Orange, Riverside, San Bernardino, San Diego, San Luis Obispo, Santa Barbara e Ventura.
                   <br><br>
-                  <strong>Consulado-Geral do Brasil em Miami</strong><br>
+                  <strong>Embaixada do Brasil em Miami</strong><br>
                   <strong>Endereço: </strong>80 SW 8th Street, 26th floor Miami, FL 33130<br>
                   <strong>Tel: </strong>(305) 285-6200<br>
                   <strong>Fax: </strong>(305) 285-6232<br>
@@ -1246,7 +1192,7 @@
                   <strong>E-mail: </strong>cg.miami@itamaraty.gov.br<br>
                   <strong>Jurisdição: </strong>Florida, Porto Rico e U.S. Virgin Islands
                   <br><br>
-                  <strong>Consulado-Geral do Brasil em Nova York</strong><br>
+                  <strong>Embaixada do Brasil em Nova York</strong><br>
                   <strong>Endereço: </strong>225 East 41st Street New York, NY 10017-6927<br>
                   <strong>Tel: </strong>(212) 827-0976<br>
                   <strong>Fax: </strong>(212) 827-9225<br>
@@ -1254,7 +1200,7 @@
                   <strong>E-mail: </strong>cg.novayork@itamaraty.gov.br<br>
                   <strong>Jurisdição: </strong>Bermuda Islands, New Jersey, New York e Pennsylvania.
                   <br><br>
-                  <strong>Consulado-Geral do Brasil em São Francisco</strong><br>
+                  <strong>Embaixada do Brasil em São Francisco</strong><br>
                   <strong>Endereço: </strong>300 Montgomery Street, Suite 1160 San Francisco, CA 94104<br>
                   <strong>Tel: </strong>(415) 981-8170<br>
                   <strong>Fax: </strong>(415) 981-3628<br>
@@ -1262,12 +1208,14 @@
                   <strong>E-mail: </strong>cg.sfrancisco@itamaraty.gov.br<br>
                   <strong>Jurisdição: </strong>Alaska, Oregon e Washington. Os seguintes condados na California: Alameda, Alpine, Amador, Butte, Calaveras, Colusa, Contra Costa, Del Norte, El Dorado, Fresno, Glenn, Humboldt, Inyo, Kings, Lake, Lassen, Ladera, Marin, Mariposa, Mendocino, Merced, Modoc, Mono, Monterey, Napa, Nevada, Placer, Plumas, Sacramento, San Benidito, San Francisco, San Joaquim, San Mateo, Santa Clara, Santa Cruz, Shasta, Sierra, Siskiyou, Solano, Sonoma, Stanislaus, Sutter, Tehama, Trinity, Tulare, Tuolumne, Yolo e Yuba.
                   <br><br>
-                  <strong>Consulado-Geral do Brasil em Washington, D.C.</strong><br>
+                  <strong>Embaixada do Brasil em Washington, D.C.</strong><br>
                   <strong>Endereço: </strong>1030 15th Street NW, Suite 280W Washington, DC 20005<br>
-                  <strong>Tel: </strong>(202) 461-3000  Fax: (202) 461-3001<br>
+                  <strong>Tel: </strong>(202) 461-3000<br>
+                  <strong>Fax: </strong>(202) 461-3001<br>
                   <strong>Website: </strong>http://cgwashington.itamaraty.gov.br<br>
                   <strong>E-mail: </strong>cons.cgwashington@itamaraty.gov.br<br>
                   <strong>Jurisdição: </strong>District of Columbia (DC), North Carolina (NC), Delaware (DE), Kentucky(KY), Maryland(MD), Ohio(OH), Virginia(VA), West Virginia(WV) e todas as Bases Militares, com exceção de Guam.
+                  <br><br>
                 </p>
                 <ul class="list-inline" style="font-size: 10px">
                   <li>Atualizado em Junho/2019</li>
@@ -1299,16 +1247,46 @@
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">Canadá</h2>
-                <p class="item-intro text-muted">Embaixada do Brasil no Canadá</p>
+                <p class="item-intro text-muted">Embaixadas do Brasil no Canadá</p>
                 <img class="img-fluid2 d-block mx-auto" src="img/paises/canada.png" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
+                <p style="text-align: left">
+                  <strong>Embaixada do Brasil em Ottawa</strong><br>
+                  <strong>Endereço: </strong>450 Wilbrod Street, Ottawa - Ontario, Canada. Lat: 45.429181; Long:-75.675926<br>
+                  <strong>Website: </strong>http://ottawa.itamaraty.gov.br/pt-br/<br>
+                  <strong>E-mail: </strong>brasemb.ottawa@itamaraty.gov.br<br>
+                  <strong>Facebook: </strong>https://www.facebook.com/EmbassyBrazilOttawa
+                  <br><br>
+                  <strong>Embaixada do Brasil em Montreal</strong><br>
+                  <strong>Endereço: </strong>1-1700, Westmount Square, Montreal, Québec, Canada<br>
+                  <strong>Fax: </strong>+1 (514) 499-3963<br>
+                  <strong>Website: </strong>https://montreal.itamaraty.gov.br<br>
+                  <strong>E-mail: </strong>cg.montreal@itamaraty.gov.br<br>
+                  <strong>Facebook: </strong>https://www.facebook.com/BrasilemMontreal<br>
+                  <strong>Twitter: </strong>https://www.twitter.com/ConsBrMTL
+                  <br><br>
+                  <strong>Embaixada do Brasil em Toronto</strong><br>
+                  <strong>Endereço: </strong>77, BLOOR STREET WEST, SUITE 1109 TORONTO, ONTARIO - CANADA, M5S 1M2<br>
+                  <strong>Tel: </strong>+1(416)922-2503<br>
+                  <strong>Fax: </strong>+1(416)922-1832<br>
+                  <strong>Website: </strong>https://toronto.itamaraty.gov.br<br>
+                  <strong>E-mail: </strong>cg.toronto@itamaraty.gov.br
+                  <br><br>
+                  <strong>Embaixada do Brasil em Vancouver</strong><br>
+                  <strong>Endereço: </strong>1111 Melville Street, Suite 1050. Vancouver, BC - V6E3V6<br>
+                  <strong>Tel: </strong>+1(416)922-2503<br>
+                  <strong>Fax: </strong>+1(416)922-1832<br>
+                  <strong>Website: </strong>https://vancouver.itamaraty.gov.br<br>
+                  <strong>E-mail: </strong>cg.vancouver@itamaraty.gov.br, consular.vancouver@itamaraty.gov.br<br>
+                  <strong>Facebook: </strong>https://www.facebook.com/cgvancouver/
+                  <br><br>
+                </p>
+                <ul class="list-inline" style="font-size: 10px">
                   <li>Atualizado em Junho/2019</li>
-                  <li>Fonte: </li>
+                  <li>Fonte: http://www.itamaraty.gov.br/index.php?option=com_content&view=article&id=4912&Itemid=478&cod_pais=CAN&tipo=bne</li>
                 </ul>
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
-                  Close Project</button>
+                  Fechar</button>
               </div>
             </div>
           </div>
@@ -1332,16 +1310,41 @@
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">Portugal</h2>
-                <p class="item-intro text-muted">Embaixada do Brasil em Portugal</p>
+                <p class="item-intro text-muted">Embaixadas do Brasil em Portugal</p>
                 <img class="img-fluid2 d-block mx-auto" src="img/paises/protugal.png" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
+                <p style="text-align: left">
+                  <strong>Embaixada do Brasil em Lisboa - 1</strong><br>
+                  <strong>Endereço: </strong>ESTRADA DAS LARANJEIRAS, 144 LISBOA 1649-021<br>
+                  <strong>Website: </strong>www.embaixadadobrasil.pt<br>
+                  <strong>E-mail: </strong>brasemb.lisboa@itamaraty.gov.br
+                  <br><br>
+                  <strong>Embaixada do Brasil em Lisboa - 2</strong><br>
+                  <strong>Endereço: </strong>Rua Antonio Maria Cardoso, 39 - Chiado - Lisboa<br>
+                  <strong>Fax: </strong>(351)211320516<br>
+                  <strong>Website: </strong>www.cglisboa.itamaraty.gov.br<br>
+                  <strong>E-mail: </strong> cg.lisboa@itamaraty.gov.br
+                  <br><br>
+                  <strong>Embaixada do Brasil em Porto</strong><br>
+                  <strong>Endereço: </strong>Av. de França, nº 20 - 1º andar - Porto - Portugal<br>
+                  <strong>Fax: </strong>(351)211320516<br>
+                  <strong>Website: </strong>http://porto.itamaraty.gov.br/pt-br/<br>
+                  <strong>E-mail: </strong>cg.porto@itamaraty.gov.br<br>
+                  <strong>Facebook: </strong>https://www.facebook.com/Consulado-Geral-do-Brasil-no-Porto-1040329932648901/<br>
+                  <br><br>
+                  <strong>Embaixada do Brasil em Faro</strong><br>
+                  <strong>Endereço: </strong>Largo Dom Marcelino Franco, Nº 2 Código Postal 8000-169 - Faro - Portugal<br>
+                  <strong>Fax: </strong>(351)289 829 710<br>
+                  <strong>Website: </strong>faro.itamaraty.gov.br<br>
+                  <strong>Facebook: </strong>www.facebook.com/ConsuladoGeralDoBrasilEmFaro<br>
+                  <br><br>
+                </p>
+                <ul class="list-inline" style="font-size: 10px">
                   <li>Atualizado em Junho/2019</li>
                   <li>Fonte: </li>
                 </ul>
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
-                  Close Project</button>
+                  Fechar</button>
               </div>
             </div>
           </div>
@@ -1365,16 +1368,18 @@
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">Reino Unido</h2>
-                <p class="item-intro text-muted">Embaixada do Brasil no Reino Unido</p>
+                <p class="item-intro text-muted">Embaixadas do Brasil no Reino Unido</p>
                 <img class="img-fluid2 d-block mx-auto" src="img/paises/reino_unido.png" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
+                <p style="text-align: left">
+
+                </p>
+                <ul class="list-inline" style="font-size: 10px">
                   <li>Atualizado em Junho/2019</li>
                   <li>Fonte: </li>
                 </ul>
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
-                  Close Project</button>
+                  Fechar</button>
               </div>
             </div>
           </div>
@@ -1398,16 +1403,18 @@
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">Irlanda</h2>
-                <p class="item-intro text-muted">Embaixada do Brasil na Irlanda</p>
+                <p class="item-intro text-muted">Embaixadas do Brasil na Irlanda</p>
                 <img class="img-fluid2 d-block mx-auto" src="img/paises/irlanda.png" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
+                <p style="text-align: left">
+
+                </p>
+                <ul class="list-inline" style="font-size: 10px">
                   <li>Atualizado em Junho/2019</li>
                   <li>Fonte: </li>
                 </ul>
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
-                  Close Project</button>
+                  Fechar</button>
               </div>
             </div>
           </div>
@@ -1431,16 +1438,18 @@
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">França</h2>
-                <p class="item-intro text-muted">Embaixada do Brasil na França</p>
+                <p class="item-intro text-muted">Embaixadas do Brasil na França</p>
                 <img class="img-fluid2 d-block mx-auto" src="img/paises/franca.png" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
+                <p style="text-align: left">
+                  
+                </p>
+                <ul class="list-inline" style="font-size: 10px">
                   <li>Atualizado em Junho/2019</li>
                   <li>Fonte: </li>
                 </ul>
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
-                  Close Project</button>
+                  Fechar</button>
               </div>
             </div>
           </div>
